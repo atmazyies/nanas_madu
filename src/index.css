@@ -2,18 +2,55 @@
 
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --color-brand: #22c55e;
-  --color-brand-light: #86efac;
-  --color-brand-pale: #dcfce7;
+  --color-brand: #059669;
+  --color-brand-light: #34d399;
+  --color-brand-pale: #d1fae5;
   --color-brand-soft: #f0fdf4;
-  --color-cta: #ef4444;
-  --color-cta-hover: #dc2626;
+  --color-brand-dark: #064e3b;
+  --color-golden: #d97706;
+  --color-golden-light: #fbbf24;
+  --color-golden-pale: #fef3c7;
+  --color-cta: #059669;
+  --color-cta-hover: #064e3b;
   --color-text: #1f2937;
   --color-text-muted: #6b7280;
-  --color-surface: #f9fafb;
-  --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.08);
-  --shadow-card: 0 8px 32px -8px rgb(0 0 0 / 0.1);
-  --shadow-hover: 0 16px 40px -12px rgb(34 197 94 / 0.2);
+  --color-surface: #f8fafc;
+  --shadow-soft: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 48px -12px rgba(5, 150, 105, 0.18);
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand) 60%, var(--color-brand-light) 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-golden-light) 0%, var(--color-golden) 100%);
+}
+
+.gradient-luxury {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand) 50%, var(--color-golden) 100%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand) 60%, var(--color-golden) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-golden-light) 0%, var(--color-golden) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 html {
@@ -33,10 +70,18 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-dark {
+  background: rgba(22, 101, 52, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 .gradient-soft {

@@ -23,7 +23,7 @@ export default function CTASection() {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-cta via-red-500 to-orange-500 px-8 py-14 text-center text-white shadow-xl sm:px-16"
+          className="relative overflow-hidden rounded-[2rem] gradient-luxury px-8 py-14 text-center text-white shadow-2xl sm:px-16 border border-white/10"
         >
           <div
             className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/10 blur-2xl"
@@ -39,9 +39,9 @@ export default function CTASection() {
             <motion.button
               type="button"
               onClick={scrollToShop}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -10px rgba(251,191,36,0.3)" }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex rounded-full bg-white px-10 py-3.5 text-sm font-bold text-cta shadow-lg transition-colors hover:bg-gray-50"
+              className="inline-flex rounded-full bg-white px-10 py-3.5 text-sm font-extrabold text-brand-dark shadow-xl transition-all duration-300 hover:bg-gray-50"
             >
               {ctaData.primary.buttonText}
             </motion.button>
@@ -84,9 +84,9 @@ export default function CTASection() {
               />
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+                className="rounded-full gradient-gold px-8 py-3 text-sm font-extrabold text-amber-950 transition-all duration-300 hover:brightness-110 shadow-md hover:shadow-lg"
               >
                 {ctaData.newsletter.buttonText}
               </motion.button>

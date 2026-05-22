@@ -1,104 +1,67 @@
 import { motion } from "framer-motion";
-import {
-  HiOutlineGlobe,
-  HiOutlineMail,
-  HiOutlineSearch,
-  HiOutlineSpeakerphone,
-} from "react-icons/hi";
-import { promotionStrategy } from "../data/promotionStrategy";
-import SectionHeading from "../components/SectionHeading";
-import { usePrototype } from "../context/PrototypeContext";
-
-const iconMap = {
-  social: HiOutlineGlobe,
-  email: HiOutlineMail,
-  search: HiOutlineSearch,
-  ads: HiOutlineSpeakerphone,
-};
+import { Link } from "react-router-dom";
+import petaniImage from "../assets/petani_sunset.png";
 
 export default function PromotionStrategySection() {
-  const { promoHighlight } = promotionStrategy;
-  const { claimPromo, scrollToShop } = usePrototype();
-
   return (
-    <section id="promotion" className="bg-gray-50/80 py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title={promotionStrategy.title}
-          subtitle={promotionStrategy.subtitle}
-        />
+    <section className="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 py-20 sm:py-28 overflow-hidden">
+      {/* Premium background decorative shapes */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {promotionStrategy.strategies.map((strategy, i) => {
-            const Icon = iconMap[strategy.icon] || HiOutlineGlobe;
-            return (
-              <motion.article
-                key={strategy.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-3xl bg-white p-6 shadow-[var(--shadow-soft)] sm:p-8"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand text-white">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">
-                      {strategy.channel}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
-                      {strategy.description}
-                    </p>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {strategy.tactics.map((tactic) => (
-                        <li
-                          key={tactic}
-                          className="rounded-full bg-brand-soft px-3 py-1 text-xs font-medium text-brand"
-                        >
-                          {tactic}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10 rounded-3xl bg-gradient-to-r from-brand to-green-600 p-8 text-white sm:p-10"
-        >
-          <h3 className="text-xl font-bold">{promoHighlight.title}</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {promoHighlight.offers.map((offer) => (
-              <div
-                key={offer.label}
-                className="rounded-2xl bg-white/15 px-6 py-4 backdrop-blur-sm"
-              >
-                <p className="text-sm opacity-90">{offer.label}</p>
-                <p className="mt-1 text-2xl font-extrabold">{offer.value}</p>
-              </div>
-            ))}
-          </div>
-          <motion.button
-            type="button"
-            onClick={() => {
-              claimPromo("Promo Aktif Econis");
-              scrollToShop();
-            }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-8 inline-flex rounded-full bg-white px-8 py-3 text-sm font-bold text-brand transition-colors hover:bg-brand-soft"
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Text & CTA */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-start text-left"
           >
-            Klaim Promo Sekarang
-          </motion.button>
-        </motion.div>
+            <span className="inline-block rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-amber-300 uppercase mb-6 shadow-sm">
+              🏆 100% Pemberdayaan Lokal
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-6">
+              Dari Tangan Petani Terbaik, <br className="hidden sm:block" />
+              <span className="text-gradient-gold">Hadir untuk Anda</span>
+            </h2>
+            <p className="text-base sm:text-lg leading-relaxed text-emerald-100/80 mb-8">
+              Setiap buah Honea adalah wujud keringat, dedikasi mendalam, dan senyuman tulus para petani lokal Pemalang. Kami membangun rantai pasok beretika yang secara langsung meningkatkan kesejahteraan petani binaan, melestarikan ekosistem tanah Gunung Slamet, sekaligus menjamin kualitas nanas madu termanis dan tersegar sampai di meja makan Anda.
+            </p>
+            <Link
+              to="/about#petani"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-golden-light to-golden text-white px-8 py-3.5 text-sm font-bold shadow-md hover:from-golden hover:to-golden-dark transition-all scale-100 hover:scale-105"
+            >
+              Selengkapnya tentang Petani Kami →
+            </Link>
+          </motion.div>
+
+          {/* Right Column: 1:1 Square Farmer Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Glowing Backdrop Circle */}
+            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500 to-emerald-500 opacity-20 blur-lg" />
+            
+            <div className="relative aspect-square max-w-md mx-auto w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-white/5 backdrop-blur-md">
+              <motion.img
+                initial={{ scale: 1.05 }}
+                whileHover={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                src={petaniImage}
+                alt="Petani Nanas Pemalang"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { HiOutlineHeart, HiStar } from "react-icons/hi";
 import { IoBagAdd } from "react-icons/io5";
 import LazyImage from "./LazyImage";
 import { usePrototype } from "../context/PrototypeContext";
+import { formatRupiah } from "../utils/format";
 
 export default function ProductCard({ product, index = 0 }) {
   const { addToCart, toggleWishlist, isWishlisted, openProductDetail } = usePrototype();
@@ -26,7 +27,7 @@ export default function ProductCard({ product, index = 0 }) {
         aria-label={`Lihat detail ${product.title}`}
       >
         {product.discount && (
-          <span className="absolute top-3 left-3 z-10 rounded-full bg-cta px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+          <span className="absolute top-3 left-3 z-10 rounded-full gradient-gold px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm ring-1 ring-white/10">
             -{product.discount}%
           </span>
         )}
@@ -36,11 +37,11 @@ export default function ProductCard({ product, index = 0 }) {
             e.stopPropagation();
             toggleWishlist(product);
           }}
-          className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-500 shadow-sm transition-all duration-300 hover:bg-white hover:text-cta"
+          className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-500 shadow-sm transition-all duration-300 hover:bg-white hover:text-golden"
           aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
           <HiOutlineHeart
-            className={`h-5 w-5 transition-colors ${wishlisted ? "fill-cta text-cta" : ""}`}
+            className={`h-5 w-5 transition-colors ${wishlisted ? "fill-golden text-golden" : ""}`}
           />
         </button>
         <div className="overflow-hidden">
@@ -76,21 +77,21 @@ export default function ProductCard({ product, index = 0 }) {
         <div className="mt-3 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <span className="text-xs text-gray-400 line-through">
-              ${product.oldPrice}
+              {formatRupiah(product.oldPrice)}
             </span>
-            <span className="text-lg font-bold text-brand">
-              ${product.newPrice}
+            <span className="text-lg font-extrabold text-brand-dark">
+              {formatRupiah(product.newPrice)}
             </span>
           </div>
           <motion.button
             type="button"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
             onClick={(e) => {
               e.stopPropagation();
               addToCart(product);
             }}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white shadow-md transition-colors hover:bg-green-600"
+            className="flex h-10 w-10 items-center justify-center rounded-full gradient-brand text-white shadow-md transition-all duration-300 hover:brightness-115"
             aria-label={`Add ${product.title} to cart`}
           >
             <IoBagAdd className="h-5 w-5" />

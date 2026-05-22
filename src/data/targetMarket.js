@@ -1,6 +1,6 @@
 export const targetMarket = {
   title: "Target Market",
-  subtitle: "Siapa yang kami layani dengan produk organik Econis",
+  subtitle: "Siapa yang kami layani dengan produk organik Honea",
   segments: [
     {
       id: 1,

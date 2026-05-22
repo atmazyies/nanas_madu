@@ -15,7 +15,7 @@ export const promoBanners = [
     variant: "green",
     eyebrow: "Organic",
     title: "Up to 20% off",
-    subtitle: "Start from $14.99",
+    subtitle: "Mulai dari Rp 22.000",
     cta: "Shop Now",
     image:
       "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500&h=500&fit=crop",

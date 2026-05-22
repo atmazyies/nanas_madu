@@ -1,32 +1,32 @@
 export const product = {
-  brand: "Econis",
-  name: "Econis Organic Wellness Drink",
-  tagline: "Minuman organik premium untuk hidup lebih sehat",
+  brand: "Honea",
+  name: "Honea Premium Extract",
+  tagline: "Kebaikan Nanas Madu Asli dalam Setiap Tetesnya",
   description:
-    "Econis Organic Wellness Drink adalah minuman sehat berbahan 100% organik, bebas pengawet, rendah kalori, dan kaya nutrisi alami. Dirancang untuk mendukung imunitas, energi harian, dan gaya hidup seimbang — tanpa kompromi pada rasa maupun kualitas.",
+    "Honea Premium Extract adalah sari minuman nanas madu pilihan 100% murni, tanpa pengawet. Kaya akan vitamin C, enzim bromelain, dan antioksidan untuk mendukung pencernaan, imunitas, serta energi harian Anda. Nikmati rasa manis alami nanas madu yang sangat menyegarkan.",
   shortDescription:
-    "Segar dari alam. Diproses dengan standar organik internasional. Cocok untuk rutinitas harian Anda.",
+    "Manis alami dari nanas madu pilihan. Kaya vitamin C dan enzim pencernaan. Kesegaran tropis murni untuk harimu.",
   images: [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&h=700&fit=crop",
-      alt: "Botol jus organik hijau Econis",
+      src: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&h=700&fit=crop",
+      alt: "Buah nanas madu segar pilihan",
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&h=700&fit=crop",
-      alt: "Smoothie tropis organik",
+      src: "https://images.unsplash.com/photo-1587883012610-e3df17d41270?w=600&h=700&fit=crop",
+      alt: "Potongan nanas segar yang manis alami",
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1563917614275-1462d77d8bfb?w=600&h=700&fit=crop",
-      alt: "Minuman aloe vera organik",
+      src: "https://images.unsplash.com/photo-1494253109108-2ce68ac14fa6?w=600&h=700&fit=crop",
+      alt: "Kesegaran sari jus nanas murni",
     },
   ],
   specs: [
     { label: "Volume", value: "500 ml" },
-    { label: "Bahan", value: "100% Organik" },
-    { label: "Gula", value: "Tanpa gula tambahan" },
-    { label: "Sertifikasi", value: "USDA Organic" },
+    { label: "Bahan", value: "100% Nanas Madu Asli" },
+    { label: "Kandungan", value: "Kaya Enzim Bromelain" },
+    { label: "Gula", value: "Tanpa Pemanis Buatan" },
   ],
 };

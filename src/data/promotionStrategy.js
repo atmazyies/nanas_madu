@@ -1,12 +1,12 @@
 export const promotionStrategy = {
   title: "Strategi Promosi Digital",
-  subtitle: "Bagaimana Econis menjangkau dan mengkonversi pelanggan secara online",
+  subtitle: "Bagaimana Honea menjangkau dan mengkonversi pelanggan secara online",
   strategies: [
     {
       id: 1,
       channel: "Social Media Marketing",
       description:
-        "Konten edukatif di Instagram & TikTok: resep smoothie, behind-the-scenes petani, dan UGC challenge #EconisHealthy.",
+        "Konten edukatif di Instagram & TikTok: resep smoothie, behind-the-scenes petani, dan UGC challenge #HoneaHealthy.",
       tactics: ["Instagram Reels", "TikTok Challenge", "Influencer Collab"],
       icon: "social",
     },
@@ -40,7 +40,7 @@ export const promotionStrategy = {
     offers: [
       { label: "First Order", value: "20% OFF" },
       { label: "Subscribe & Save", value: "15% OFF" },
-      { label: "Free Shipping", value: "Min. $50" },
+      { label: "Free Shipping", value: "Min. Rp 100rb" },
     ],
   },
 };

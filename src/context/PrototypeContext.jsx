@@ -136,19 +136,10 @@ export function PrototypeProvider({ children }) {
 
   const filteredProducts = useMemo(() => {
     if (!categoryFilter) return products;
-    const key = categoryFilter.toLowerCase();
+    const key = categoryFilter.toLowerCase().trim();
     const filtered = products.filter((p) => {
-      const title = p.title.toLowerCase();
-      const cat = (p.category || "").toLowerCase();
-      if (key.includes("juice") || key.includes("minuman"))
-        return cat === "juice" || title.includes("juice") || title.includes("smoothie") || title.includes("aloe");
-      if (key.includes("fruit"))
-        return cat.includes("snack") || title.includes("gumm");
-      if (key.includes("meat") || key.includes("chicken"))
-        return cat.includes("meat") || title.includes("chicken");
-      if (key.includes("dried") || key.includes("cumin") || key.includes("butter") || key.includes("egg"))
-        return cat.includes("pantry") || title.includes("cumin");
-      return cat.includes(key.split(" ")[0]) || title.includes(key.split(" ")[0]);
+      const cat = (p.category || "").toLowerCase().trim();
+      return cat === key || cat.includes(key) || key.includes(cat);
     });
     return filtered.length > 0 ? filtered : products;
   }, [categoryFilter]);
@@ -167,7 +158,7 @@ export function PrototypeProvider({ children }) {
     [cart]
   );
 
-  const shippingCost = cartSubtotal >= 50 ? 0 : 5.99;
+  const shippingCost = cartSubtotal >= 100000 ? 0 : 15000;
   const cartTotal = cartSubtotal + (cart.length > 0 ? shippingCost : 0);
 
   const updateCustomerForm = useCallback((field, value) => {

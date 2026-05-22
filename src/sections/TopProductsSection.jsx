@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { ProductSkeleton } from "../components/LoadingSkeleton";
 import { usePrototype } from "../context/PrototypeContext";
 
-export default function TopProductsSection() {
+export default function TopProductsSection({ limit }) {
   const [loading, setLoading] = useState(true);
   const { filteredProducts, categoryFilter, clearCategoryFilter } = usePrototype();
 
@@ -12,6 +12,8 @@ export default function TopProductsSection() {
     const timer = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
+
+  const displayProducts = limit ? filteredProducts.slice(0, limit) : filteredProducts;
 
   return (
     <section id="shop" className="bg-brand-soft/30 py-16 sm:py-20 lg:py-24" aria-labelledby="products-heading">
@@ -45,10 +47,10 @@ export default function TopProductsSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {loading
-            ? Array.from({ length: 8 }).map((_, i) => (
+            ? Array.from({ length: limit || 8 }).map((_, i) => (
                 <ProductSkeleton key={i} />
               ))
-            : filteredProducts.map((product, i) => (
+            : displayProducts.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
         </div>

@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi";
 import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
+import { formatRupiah } from "../../utils/format";
 
 const steps = [
   { id: 1, label: "Keranjang", icon: HiOutlineShoppingCart },
@@ -149,15 +150,11 @@ export default function CheckoutModal() {
                               {item.displayTitle || item.title}
                             </p>
                             <p className="text-xs text-gray-500">
-                              {item.qty} x $
-                              {(item.unitPrice ?? item.newPrice).toFixed(2)}
+                              {item.qty} x {formatRupiah(item.unitPrice ?? item.newPrice)}
                             </p>
                           </div>
                           <p className="text-sm font-bold text-brand">
-                            $
-                            {(
-                              (item.unitPrice ?? item.newPrice) * item.qty
-                            ).toFixed(2)}
+                            {formatRupiah((item.unitPrice ?? item.newPrice) * item.qty)}
                           </p>
                         </li>
                       ))}
@@ -165,7 +162,7 @@ export default function CheckoutModal() {
                     <div className="mt-4 space-y-2 rounded-2xl bg-gray-50 p-4 text-sm">
                       <div className="flex justify-between">
                         <span className="text-gray-500">Subtotal</span>
-                        <span>${cartSubtotal.toFixed(2)}</span>
+                        <span>{formatRupiah(cartSubtotal)}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-500">Ongkir</span>
@@ -173,13 +170,13 @@ export default function CheckoutModal() {
                           {shippingCost === 0 ? (
                             <span className="text-brand font-medium">Gratis</span>
                           ) : (
-                            `$${shippingCost.toFixed(2)}`
+                            formatRupiah(shippingCost)
                           )}
                         </span>
                       </div>
                       <div className="flex justify-between border-t border-gray-200 pt-2 font-bold">
                         <span>Total</span>
-                        <span className="text-brand">${cartTotal.toFixed(2)}</span>
+                        <span className="text-brand">{formatRupiah(cartTotal)}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -345,7 +342,7 @@ export default function CheckoutModal() {
                         {customerForm.phone}
                       </p>
                       <p className="mt-3 text-lg font-bold text-brand">
-                        Total: ${cartTotal.toFixed(2)}
+                        Total: {formatRupiah(cartTotal)}
                       </p>
                     </div>
                   </motion.div>
@@ -380,7 +377,7 @@ export default function CheckoutModal() {
                       <p className="mt-2">
                         <span className="text-gray-500">Total:</span>{" "}
                         <strong className="text-brand">
-                          ${orderSuccess.total.toFixed(2)}
+                          {formatRupiah(orderSuccess.total)}
                         </strong>
                       </p>
                       <p className="mt-2">

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { categories } from "../data/categories";
 import CategoryCard from "../components/CategoryCard";
 import { CategorySkeleton } from "../components/LoadingSkeleton";
+import { Link } from "react-router-dom";
 
 export default function HotCategoriesSection() {
   const [loading, setLoading] = useState(true);
@@ -22,14 +23,14 @@ export default function HotCategoriesSection() {
           className="mb-10 flex items-end justify-between"
         >
           <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-            Hot Categories
+            Kategori Terpopuler
           </h2>
-          <a
-            href="#shop"
-            className="hidden text-sm font-medium text-brand transition-colors hover:text-green-600 sm:block"
+          <Link
+            to="/produk"
+            className="hidden text-sm font-bold text-brand transition-colors hover:text-green-600 sm:block"
           >
-            View All →
-          </a>
+            Lihat Semua →
+          </Link>
         </motion.div>
 
         <div className="-mx-4 overflow-x-auto px-4 pb-4 scrollbar-hide sm:-mx-6 sm:px-6 lg:overflow-visible">

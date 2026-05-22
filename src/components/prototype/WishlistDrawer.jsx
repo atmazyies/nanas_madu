@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HiOutlineHeart, HiX } from "react-icons/hi";
 import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
+import { formatRupiah } from "../../utils/format";
 
 export default function WishlistDrawer() {
   const {
@@ -64,7 +65,7 @@ export default function WishlistDrawer() {
                       <div className="flex-1">
                         <p className="text-sm font-semibold">{item.title}</p>
                         <p className="text-sm font-bold text-brand">
-                          ${item.newPrice}
+                          {formatRupiah(item.newPrice)}
                         </p>
                         <div className="mt-2 flex gap-2">
                           <button

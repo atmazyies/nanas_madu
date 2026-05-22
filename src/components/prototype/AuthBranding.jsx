@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { IoLeaf } from "react-icons/io5";
 
-export default function AuthBranding({ title = "Econis", description }) {
+export default function AuthBranding({ title = "Honea", description }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}

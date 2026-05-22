@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   HiOutlineSearch,
   HiOutlineHeart,
@@ -7,9 +8,11 @@ import {
   HiOutlineUser,
   HiMenu,
   HiX,
+  HiChevronDown,
 } from "react-icons/hi";
 import { navLinks } from "../data/navigation";
 import { usePrototype } from "../context/PrototypeContext";
+import logoImg from "../assets/logo nanas madu.png";
 
 const iconBtn =
   "relative flex h-10 w-10 items-center justify-center rounded-full text-gray-600 transition-all duration-300 hover:bg-brand-soft hover:text-brand";
@@ -17,16 +20,93 @@ const iconBtn =
 function Badge({ count }) {
   if (!count) return null;
   return (
-    <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-cta px-1 text-[10px] font-bold text-white">
+    <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gradient-to-r from-golden-light to-golden px-1 text-[10px] font-extrabold text-white shadow-sm ring-1 ring-white/10">
       {count > 9 ? "9+" : count}
     </span>
+  );
+}
+
+function MobileNavItem({ link, setMobileOpen }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isActive = location.pathname === link.href || (link.href !== "/" && location.pathname.startsWith(link.href));
+
+  if (!link.subLinks) {
+    return (
+      <Link
+        to={link.href}
+        className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand ${
+          isActive ? "bg-brand-soft text-brand" : "text-gray-700"
+        }`}
+        onClick={() => setMobileOpen(false)}
+      >
+        {link.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand ${
+          isActive ? "bg-brand-soft/50 text-brand" : "text-gray-700"
+        }`}
+      >
+        {link.label}
+        <HiChevronDown className={`h-5 w-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col gap-1 pl-6 pr-2 pb-2 pt-1">
+              {link.subLinks.map((sub, idx) => (
+                <Link
+                  key={idx}
+                  to={sub.href}
+                  className="block rounded-lg px-4 py-2 text-sm text-gray-600 transition-colors hover:bg-brand-soft hover:text-brand"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {sub.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [tickerIndex, setTickerIndex] = useState(0);
   const { openPanel, cartCount, wishlist } = usePrototype();
+  const location = useLocation();
+
+  const tickerTexts = [
+    "🍍 Diskon Spesial 20% untuk Pengguna Baru!",
+    "🚚 Gratis Ongkir ke Seluruh Jawa Tengah",
+    "⚡ Flash Sale: Beli 2 Gratis 1 Jus Nanas"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTickerIndex((prev) => (prev + 1) % tickerTexts.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -49,28 +129,87 @@ export default function Navbar() {
           : "bg-white/60 backdrop-blur-sm"
       }`}
     >
+      {/* Top Discount Ticker */}
+      <div className="gradient-brand text-white text-xs sm:text-sm font-semibold py-1.5 overflow-hidden relative flex justify-center items-center h-8 shadow-sm">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tickerIndex}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute whitespace-nowrap"
+          >
+            {tickerTexts[tickerIndex]}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <a
-          href="#home"
-          className="text-2xl font-bold tracking-tight text-gray-900 transition-colors hover:text-brand"
+        <Link
+          to="/"
+          className="flex items-center gap-1.5 transition-all duration-300 hover:opacity-90"
         >
-          Econis
-        </a>
+          <img
+            src={logoImg}
+            alt="Honea Logo"
+            className="h-[52px] w-auto object-contain select-none"
+          />
+          <div className="flex flex-col justify-center leading-none">
+            <span className="font-extrabold text-[22px] tracking-tight text-gray-900 leading-[1.1]">
+              Honea
+            </span>
+            <span className="text-[9px] font-medium tracking-[0.12em] text-brand-dark uppercase mt-0.5 leading-none">
+              Asli Khas Pemalang
+            </span>
+          </div>
+        </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={link.href}
-                className="relative text-sm font-medium text-gray-600 transition-colors duration-300 hover:text-brand after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-brand after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.href || (link.href !== "/" && location.pathname.startsWith(link.href));
+            return (
+              <li key={link.id} className="relative group">
+                <NavLink
+                  to={link.href}
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 py-2 ${
+                    isActive ? "text-brand" : "text-gray-600 hover:text-brand"
+                  }`}
+                >
+                  {link.label}
+                  {link.subLinks && (
+                    <HiChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                  )}
+                </NavLink>
+                {/* Active indicator */}
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-brand to-golden"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {link.subLinks && (
+                  <div className="absolute left-0 top-full opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 pt-2">
+                    <div className="w-56 rounded-2xl bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-black/5">
+                      {link.subLinks.map((sub, idx) => (
+                        <Link
+                          key={idx}
+                          to={sub.href}
+                          className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-600 hover:bg-brand-soft hover:text-brand transition-colors"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-2">
@@ -130,13 +269,7 @@ export default function Navbar() {
             <ul className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  <a
-                    href={link.href}
-                    className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-brand-soft hover:text-brand"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </a>
+                  <MobileNavItem link={link} setMobileOpen={setMobileOpen} />
                 </li>
               ))}
               <li className="flex gap-2 border-t border-gray-100 pt-3">

@@ -2,7 +2,7 @@ export const uvp = {
   title: "Unique Value Proposition",
   headline: "Satu-satunya minuman organik dengan 3X nutrisi alami",
   description:
-    "Econis membedakan diri dengan formulasi cold-pressed, sertifikasi organik penuh, dan rasa premium — tanpa kompromi kesehatan.",
+    "Honea membedakan diri dengan formulasi cold-pressed, sertifikasi organik penuh, dan rasa premium — tanpa kompromi kesehatan.",
   points: [
     {
       id: 1,

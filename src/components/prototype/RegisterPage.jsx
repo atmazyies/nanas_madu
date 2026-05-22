@@ -105,7 +105,7 @@ export default function RegisterPage() {
 
               <div className="grid md:grid-cols-2">
                 <AuthBranding
-                  description="Bergabung dengan komunitas Econis. Dapatkan promo member, tracking pesanan, dan rekomendasi produk organik."
+                  description="Bergabung dengan komunitas Honea. Dapatkan promo member, tracking pesanan, dan rekomendasi produk organik."
                 />
 
                 <div className="p-8 sm:p-10">
@@ -130,7 +130,7 @@ export default function RegisterPage() {
                     animate={{ opacity: 1 }}
                     className="mt-1 text-sm text-gray-500"
                   >
-                    Buat akun Econis gratis dalam hitungan menit
+                    Buat akun Honea gratis dalam hitungan menit
                   </motion.p>
 
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -265,7 +265,7 @@ export default function RegisterPage() {
                         >
                           Syarat & Ketentuan
                         </button>{" "}
-                        dan Kebijakan Privasi Econis
+                        dan Kebijakan Privasi Honea
                       </span>
                     </label>
                     {errors.agreeTerms && (

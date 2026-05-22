@@ -103,7 +103,7 @@ export default function LoginPage() {
                         transition={{ delay: 0.1 }}
                         className="mt-1 text-sm text-gray-500"
                       >
-                        Masuk ke akun Econis Anda
+                        Masuk ke akun Honea Anda
                       </motion.p>
 
                       <form onSubmit={handleSubmit} className="mt-8 space-y-5">

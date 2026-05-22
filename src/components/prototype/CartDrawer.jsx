@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HiOutlineShoppingCart, HiX, HiPlus, HiMinus } from "react-icons/hi";
 import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
+import { formatRupiah } from "../../utils/format";
 
 export default function CartDrawer() {
   const {
@@ -88,7 +89,7 @@ export default function CartDrawer() {
                           </p>
                         )}
                         <p className="mt-1 text-sm font-bold text-brand">
-                          ${(item.unitPrice ?? item.newPrice).toFixed(2)}
+                          {formatRupiah(item.unitPrice ?? item.newPrice)}
                         </p>
                         <div className="mt-2 flex items-center gap-2">
                           <button
@@ -131,7 +132,7 @@ export default function CartDrawer() {
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">Total</span>
                   <span className="font-bold text-gray-900">
-                    ${cartTotal.toFixed(2)}
+                    {formatRupiah(cartTotal)}
                   </span>
                 </div>
                 <button

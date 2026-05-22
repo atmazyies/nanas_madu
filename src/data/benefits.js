@@ -1,6 +1,6 @@
 export const benefits = {
   title: "Keunggulan Produk",
-  subtitle: "Mengapa ribuan pelanggan memilih Econis setiap hari",
+  subtitle: "Mengapa ribuan pelanggan memilih Honea setiap hari",
   items: [
     {
       id: 1,

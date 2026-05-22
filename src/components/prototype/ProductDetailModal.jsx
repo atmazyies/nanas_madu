@@ -4,6 +4,7 @@ import { HiX, HiStar, HiOutlineHeart, HiMinus, HiPlus, HiChevronLeft, HiChevronR
 import { IoBagAdd } from "react-icons/io5";
 import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
+import { formatRupiah } from "../../utils/format";
 
 export default function ProductDetailModal() {
   const {
@@ -205,14 +206,14 @@ export default function ProductDetailModal() {
 
                 <div className="mt-4 flex items-baseline gap-3">
                   <span className="text-2xl font-bold text-brand sm:text-3xl">
-                    ${unitPrice.toFixed(2)}
+                    {formatRupiah(unitPrice)}
                   </span>
                   <span className="text-base text-gray-400 line-through">
-                    ${selectedProduct.oldPrice}
+                    {formatRupiah(selectedProduct.oldPrice)}
                   </span>
-                  {selectedSize?.priceModifier > 0 && (
+                  {selectedSize && selectedSize.priceModifier !== 0 && (
                     <span className="text-xs text-gray-400">
-                      (+${selectedSize.priceModifier} ukuran)
+                      ({selectedSize.priceModifier > 0 ? "+" : ""}{formatRupiah(selectedSize.priceModifier)} ukuran)
                     </span>
                   )}
                 </div>
@@ -278,12 +279,12 @@ export default function ProductDetailModal() {
                           {size.name}
                           {size.priceModifier > 0 && (
                             <span className="ml-1 opacity-80">
-                              +${size.priceModifier}
+                              (+{formatRupiah(size.priceModifier)})
                             </span>
                           )}
                           {size.priceModifier < 0 && (
                             <span className="ml-1 opacity-80">
-                              ${size.priceModifier}
+                              (-{formatRupiah(Math.abs(size.priceModifier))})
                             </span>
                           )}
                         </button>
@@ -320,7 +321,7 @@ export default function ProductDetailModal() {
                     </div>
                     <p className="text-sm text-gray-500">
                       Subtotal:{" "}
-                      <strong className="text-brand">${totalPrice.toFixed(2)}</strong>
+                      <strong className="text-brand">{formatRupiah(totalPrice)}</strong>
                     </p>
                   </div>
                 </div>
@@ -340,6 +341,42 @@ export default function ProductDetailModal() {
                     ))}
                   </ul>
                 </div>
+
+                {/* Khasiat & Manfaat */}
+                {selectedProduct.benefits?.length > 0 && (
+                  <div className="mt-5">
+                    <p className="text-sm font-semibold text-gray-900">Khasiat & Manfaat:</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {selectedProduct.benefits.map((b, idx) => (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center gap-1.5 rounded-xl bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-600/10 shadow-sm"
+                        >
+                          🍍 {b}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Kandungan & Nutrisi */}
+                {selectedProduct.nutrition?.length > 0 && (
+                  <div className="mt-5">
+                    <p className="text-sm font-semibold text-gray-900">Kandungan & Nutrisi:</p>
+                    <div className="mt-2 grid grid-cols-2 gap-2">
+                      {selectedProduct.nutrition.map((nut, idx) => (
+                        <div
+                          key={idx}
+                          className="flex justify-between items-center rounded-xl bg-gray-50 border border-gray-100 p-2.5 text-xs hover:bg-brand-soft/20 transition-all duration-300"
+                        >
+                          <span className="text-gray-500 font-medium">{nut.label}</span>
+                          <span className="text-brand font-bold">{nut.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
 
                 {/* Ringkasan pilihan */}
                 <div className="mt-4 rounded-2xl border border-brand/20 bg-brand-soft/30 p-3 text-xs text-gray-600">
