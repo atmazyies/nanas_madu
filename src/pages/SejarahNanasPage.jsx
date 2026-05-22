@@ -134,6 +134,70 @@ export default function SejarahNanasPage() {
           </div>
         </section>
 
+        {/* Section 1.5: Geografi & Peta Lokasi */}
+        <section className="mx-auto max-w-7xl px-6 lg:px-8 mt-32 relative z-10">
+          <div className="rounded-3xl glass p-6 sm:p-10 border border-white/60 shadow-[var(--shadow-card)]">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand shadow-inner">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  </span>
+                  <span className="text-sm font-bold text-brand uppercase tracking-wider">
+                    Titik Nol Nanas Madu
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
+                  Kecamatan Belik, <br />Kabupaten Pemalang
+                </h3>
+                <p className="text-base text-gray-600 leading-relaxed">
+                  Pusat episentrum pertumbuhan Nanas Madu berada di wilayah dataran tinggi selatan Pemalang, khususnya Kecamatan Belik dan Pulosari. Berada di ketinggian 500 hingga 1.000 meter di atas permukaan laut (mdpl), kawasan ini diberkahi dengan iklim sejuk dan curah hujan tropis yang stabil sepanjang tahun.
+                </p>
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <div className="bg-white/80 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+                    <p className="text-xs text-gray-500 font-medium">Ketinggian</p>
+                    <p className="text-sm font-bold text-gray-900">700+ mdpl</p>
+                  </div>
+                  <div className="bg-white/80 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+                    <p className="text-xs text-gray-500 font-medium">Suhu Rata-rata</p>
+                    <p className="text-sm font-bold text-gray-900">20°C - 26°C</p>
+                  </div>
+                  <div className="bg-white/80 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+                    <p className="text-xs text-gray-500 font-medium">Topografi</p>
+                    <p className="text-sm font-bold text-gray-900">Berbukit & Lereng</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="w-full h-[350px] sm:h-[400px] rounded-2xl overflow-hidden shadow-inner border-2 border-white"
+              >
+                <iframe 
+                  src="https://maps.google.com/maps?q=Belik,%20Pemalang,%20Jawa%20Tengah&t=p&z=12&ie=UTF8&iwloc=&output=embed" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Peta Lokasi Perkebunan Nanas Madu Belik Pemalang"
+                  className="w-full h-full object-cover"
+                ></iframe>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Section 2: Faktor Terroir */}
         <section className="mt-32 bg-white py-20 sm:py-28 relative overflow-hidden">
           {/* Ambient glowing spotlight for terroir cards */}
