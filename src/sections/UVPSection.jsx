@@ -16,7 +16,7 @@ export default function UVPSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="glass rounded-3xl border border-white/60 px-8 py-12 sm:px-12 sm:py-16 shadow-[var(--shadow-card)] text-center relative overflow-hidden"
+          className="sm-glass rounded-none sm:rounded-3xl border-0 sm:border border-white/60 px-0 py-8 sm:px-12 sm:py-16 shadow-none sm:shadow-[var(--shadow-card)] text-center relative overflow-hidden"
         >
           {/* Internal ambient glowing circles */}
           <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-brand-light/10 blur-2xl pointer-events-none" />

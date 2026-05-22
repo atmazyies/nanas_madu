@@ -36,3 +36,5 @@ dist/
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
