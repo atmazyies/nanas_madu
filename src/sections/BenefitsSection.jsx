@@ -41,6 +41,9 @@ export default function BenefitsSection() {
   };
 
   const setHovered = (id, isHovered) => {
+    // Jangan aktifkan hover di perangkat touch/mobile (mencegah bug "sticky hover")
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    
     setHoveredCards((prev) => ({
       ...prev,
       [id]: isHovered,
