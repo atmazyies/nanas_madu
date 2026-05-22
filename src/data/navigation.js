@@ -48,6 +48,15 @@ export const navLinks = [
     ],
   },
   {
+    id: "blog",
+    label: "Artikel & Edukasi",
+    href: "/blog",
+    subLinks: [
+      { label: "Jurnal Kesehatan", href: "/blog" },
+      { label: "Tips & Nutrisi", href: "/blog" },
+    ],
+  },
+  {
     id: "bantuan",
     label: "Bantuan",
     href: "/faq",
@@ -66,6 +75,7 @@ export const footerLinks = {
     { label: "Keunggulan", href: "/uvp" },
     { label: "Katalog Produk", href: "/shop" },
     { label: "Kemitraan", href: "/kemitraan" },
+    { label: "Artikel & Edukasi", href: "/blog" },
     { label: "Tanya Jawab / FAQ", href: "/faq" },
     { label: "Hubungi Kami", href: "/kontak" },
   ],
