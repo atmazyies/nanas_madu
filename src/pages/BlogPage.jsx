@@ -38,7 +38,7 @@ export default function BlogPage() {
                 transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
                 className="flex flex-col sm:flex-row overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:shadow-md hover:border-brand-light/50 border border-gray-100 group relative"
               >
-                <div className="flex-shrink-0 relative sm:w-48 sm:h-auto h-48 overflow-hidden">
+                <div className="flex-shrink-0 relative sm:w-48 sm:h-48 w-full h-48 overflow-hidden">
                   <img
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     src={post.coverImage}
