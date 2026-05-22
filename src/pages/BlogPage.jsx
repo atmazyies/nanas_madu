@@ -29,54 +29,38 @@ export default function BlogPage() {
             </p>
           </motion.div>
 
-          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-col gap-4 max-w-4xl mx-auto">
             {blogPosts.map((post, index) => (
               <motion.article
                 key={post.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.5) }}
-                className="flex flex-col md:flex-row overflow-hidden rounded-3xl bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1 border border-gray-100 group"
+                transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
+                className="flex flex-col sm:flex-row overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:shadow-md hover:border-brand-light/50 border border-gray-100 group relative"
               >
-                <div className="flex-shrink-0 relative md:w-2/5 h-56 md:h-auto overflow-hidden">
+                <div className="flex-shrink-0 relative sm:w-48 sm:h-auto h-48 overflow-hidden">
                   <img
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     src={post.coverImage}
                     alt={post.title}
                   />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand shadow-sm">
-                    {post.category}
-                  </div>
                 </div>
-                <div className="flex flex-1 flex-col justify-between p-6 sm:p-8 md:w-3/5">
-                  <div className="flex-1">
-                    <Link to={`/blog/${post.slug}`} className="block mt-2">
-                      <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-brand transition-colors duration-200">
-                        {post.title}
-                      </h3>
-                      <p className="mt-4 text-base text-gray-600 line-clamp-3 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                    </Link>
-                  </div>
-                  <div className="mt-8 flex items-center justify-between text-xs text-gray-500 font-medium">
-                    <div className="flex items-center gap-2">
-                      <FaCalendarAlt className="text-brand-light" />
-                      <span>{post.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <FaClock className="text-brand-light" />
-                      <span>{post.readTime}</span>
+                <div className="flex flex-1 flex-col justify-center p-5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[10px] font-bold text-brand bg-brand-soft px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      {post.category}
+                    </span>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-400 font-medium">
+                      <FaCalendarAlt /> {post.date}
                     </div>
                   </div>
-                  <div className="mt-6 pt-6 border-t border-gray-100">
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="inline-flex items-center text-sm font-bold text-brand hover:text-brand-dark transition-colors"
-                    >
-                      Baca Artikel Lengkap <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-                    </Link>
-                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug group-hover:text-brand transition-colors pr-4">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <Link to={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Baca ${post.title}`} />
                 </div>
               </motion.article>
             ))}
