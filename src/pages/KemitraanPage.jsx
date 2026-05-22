@@ -229,6 +229,58 @@ export default function KemitraanPage() {
             </div>
           </motion.div>
 
+          {/* Sponsorship Box */}
+          <motion.div
+            id="sponsorship"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2.5rem] bg-gradient-to-br from-brand-dark via-brand to-brand-dark border border-brand-light/20 p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(5,150,105,0.4)] relative overflow-hidden mt-8"
+          >
+            <div className="absolute top-0 right-0 h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
+            <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-golden-light/20 blur-3xl pointer-events-none" />
+
+            <div className="grid items-center gap-10 lg:grid-cols-12 relative z-10">
+              {/* Left Content (8 cols) */}
+              <div className="lg:col-span-8 text-left">
+                <div className="flex items-center gap-2 mb-4">
+                  <HiOutlineSparkles className="w-5 h-5 text-golden" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-golden">Program Dukungan Acara</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                  Pengajuan Sponsorship Honea
+                </h3>
+                <p className="text-sm sm:text-base text-brand-pale leading-relaxed mb-6">
+                  Punya acara kampus, festival, atau kompetisi olahraga? Honea siap mendukung kesuksesan event Anda melalui program sponsorship berupa produk segar sehat maupun dukungan pendanaan!
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
+                    Acara Kampus
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
+                    Kompetisi Olahraga
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
+                    Festival Komunitas
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Button (4 cols) */}
+              <div className="lg:col-span-4 flex flex-col items-center sm:items-end justify-center w-full">
+                <a
+                  href={`mailto:${contact.email}?subject=Proposal Sponsorship Acara`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-extrabold text-brand-dark transition-transform hover:scale-105 shadow-xl text-center"
+                >
+                  Kirim Proposal Acara
+                </a>
+                <p className="text-xs text-brand-pale mt-4 text-center sm:text-right max-w-xs">
+                  *Tim kami akan meninjau proposal Anda dalam waktu 2-3 hari kerja.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </main>
 

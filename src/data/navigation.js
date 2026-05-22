@@ -44,6 +44,7 @@ export const navLinks = [
     href: "/kemitraan",
     subLinks: [
       { label: "Peluang Kolaborasi", href: "/kemitraan" },
+      { label: "Pengajuan Sponsorship", href: "/kemitraan#sponsorship" },
       { label: "Hubungi Tim B2B", href: "/kemitraan" },
     ],
   },
