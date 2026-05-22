@@ -29,16 +29,16 @@ export default function BlogPage() {
             </p>
           </motion.div>
 
-          <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2">
+          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
             {blogPosts.map((post, index) => (
               <motion.article
                 key={post.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 border border-gray-100 group"
+                transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.5) }}
+                className="flex flex-col md:flex-row overflow-hidden rounded-3xl bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1 border border-gray-100 group"
               >
-                <div className="flex-shrink-0 relative h-56 overflow-hidden">
+                <div className="flex-shrink-0 relative md:w-2/5 h-56 md:h-auto overflow-hidden">
                   <img
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     src={post.coverImage}
@@ -48,7 +48,7 @@ export default function BlogPage() {
                     {post.category}
                   </div>
                 </div>
-                <div className="flex flex-1 flex-col justify-between p-8">
+                <div className="flex flex-1 flex-col justify-between p-6 sm:p-8 md:w-3/5">
                   <div className="flex-1">
                     <Link to={`/blog/${post.slug}`} className="block mt-2">
                       <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-brand transition-colors duration-200">
