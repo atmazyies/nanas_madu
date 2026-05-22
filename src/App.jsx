@@ -1,32 +1,40 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrototypeProvider } from "./context/PrototypeContext";
 import PrototypeUI from "./components/prototype/PrototypeUI";
 import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ProdukPage from "./pages/ProdukPage";
-import UVPPage from "./pages/UVPPage";
-import ShopPage from "./pages/ShopPage";
-import KontakPage from "./pages/KontakPage";
-import FAQPage from "./pages/FAQPage";
-import ManfaatKesehatanPage from "./pages/ManfaatKesehatanPage";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import PageLoader from "./components/PageLoader";
+
+// Lazy load non-home pages for optimized chunking and faster initial load
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const SejarahNanasPage = lazy(() => import("./pages/SejarahNanasPage"));
+const ProdukPage = lazy(() => import("./pages/ProdukPage"));
+const UVPPage = lazy(() => import("./pages/UVPPage"));
+const ShopPage = lazy(() => import("./pages/ShopPage"));
+const KontakPage = lazy(() => import("./pages/KontakPage"));
+const FAQPage = lazy(() => import("./pages/FAQPage"));
+const KemitraanPage = lazy(() => import("./pages/KemitraanPage"));
 
 function App() {
   return (
     <BrowserRouter>
       <PrototypeProvider>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/produk" element={<ProdukPage />} />
-          <Route path="/uvp" element={<UVPPage />} />
-          <Route path="/shop" element={<ShopPage />} />
-          <Route path="/kontak" element={<KontakPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/manfaat-kesehatan" element={<ManfaatKesehatanPage />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/sejarah-nanas" element={<SejarahNanasPage />} />
+            <Route path="/produk" element={<ProdukPage />} />
+            <Route path="/uvp" element={<UVPPage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/kontak" element={<KontakPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/kemitraan" element={<KemitraanPage />} />
+          </Routes>
+        </Suspense>
         <FloatingWhatsApp />
         <PrototypeUI />
       </PrototypeProvider>
@@ -35,3 +43,4 @@ function App() {
 }
 
 export default App;
+

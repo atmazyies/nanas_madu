@@ -57,6 +57,7 @@ export default function PromotionStrategySection() {
                 src={petaniImage}
                 alt="Petani Nanas Pemalang"
                 className="h-full w-full object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>

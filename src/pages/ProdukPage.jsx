@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HotCategoriesSection from "../sections/HotCategoriesSection";
 import TopProductsSection from "../sections/TopProductsSection";
+import { usePrototype } from "../context/PrototypeContext";
 
 const categories = [
   {
@@ -27,6 +28,8 @@ const categories = [
 ];
 
 export default function ProdukPage() {
+  const { filterByCategory, categoryFilter } = usePrototype();
+
   return (
     <>
       <Navbar />
@@ -56,21 +59,27 @@ export default function ProdukPage() {
             </motion.div>
 
             <div className="grid gap-8 sm:grid-cols-3">
-              {categories.map((cat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  className={`rounded-3xl bg-gradient-to-br ${cat.color} p-10 text-center shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-hover)] cursor-pointer`}
-                >
-                  <span className="text-5xl mb-5 block">{cat.icon}</span>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{cat.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{cat.description}</p>
-                </motion.div>
-              ))}
+              {categories.map((cat, i) => {
+                const isActive = categoryFilter === cat.title;
+                return (
+                  <motion.div
+                    key={i}
+                    onClick={() => filterByCategory(cat.title)}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    className={`rounded-3xl bg-gradient-to-br ${cat.color} p-10 text-center shadow-[var(--shadow-card)] transition-all cursor-pointer ${
+                      isActive ? "ring-4 ring-brand shadow-[var(--shadow-hover)] scale-[1.02]" : "hover:shadow-[var(--shadow-hover)]"
+                    }`}
+                  >
+                    <span className="text-5xl mb-5 block">{cat.icon}</span>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{cat.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{cat.description}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

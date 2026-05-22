@@ -57,6 +57,20 @@ export const testimonials = {
       role: "Pecinta Kuliner Nusantara & Eksportir",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop",
       text: "Saya selalu kagum dengan kekayaan buah tropis Indonesia. Honea telah melakukan pekerjaan luar biasa dalam menaikkan kasta Nanas Madu Pemalang dari buah pasar tradisional menjadi komoditas ultra-premium dengan standar kebersihan, packaging glassmorphism, dan ketertelusuran yang mumpuni. Kualitas rasa manis madunya yang pekat jauh melampaui nanas-nanas impor dari negara tetangga."
+    },
+    {
+      id: 9,
+      name: "Retno Wijayanti",
+      role: "Pengusaha Kafe & Ibu Rumah Tangga",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+      text: "Saya menggunakan Nanas Madu Honea sebagai bahan utama smoothie bowl di kafe saya. Pelanggan sangat menyukai rasa alami yang manis tanpa perlu tambahan gula. Kualitas konsistensi buah yang selalu prima membuat menu saya selalu fresh dan menarik. Honea bukan hanya produk berkualitas, tapi juga partner bisnis yang dapat diandalkan untuk pertumbuhan usaha saya."
+    },
+    {
+      id: 10,
+      name: "Pak Suryanto",
+      role: "Pensiunan PNS & Pecinta Kesehatan",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+      text: "Di usia 72 tahun, saya sangat selektif dengan asupan makanan. Nanas Madu Honea menjadi pilihan utama saya karena terbukti aman, organik, dan memberikan energi alami sepanjang hari. Kolesterol saya turun signifikan setelah rutin mengonsumsinya. Saya merekomendasikan kepada semua teman-teman senior saya yang peduli dengan kesehatan jangka panjang."
     }
   ]
 };

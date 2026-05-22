@@ -43,6 +43,7 @@ export default function TargetMarketSection() {
                 src={boothImage}
                 alt="Stand Jus Honea Otentik"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
               />
             </div>
             {/* Glassmorphism floating badge */}

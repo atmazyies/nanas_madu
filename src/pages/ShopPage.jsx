@@ -2,7 +2,6 @@ import PageBanner from "../components/PageBanner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TopProductsSection from "../sections/TopProductsSection";
-import CTASection from "../sections/CTASection";
 
 export default function ShopPage() {
   return (
@@ -16,7 +15,6 @@ export default function ShopPage() {
 
       <main className="bg-surface">
         <TopProductsSection />
-        <CTASection />
       </main>
 
       <Footer />

@@ -3,18 +3,17 @@ import { motion } from "framer-motion";
 import { ctaData } from "../data/cta";
 import { contact } from "../data/contact";
 import { usePrototype } from "../context/PrototypeContext";
+import { HiOutlineSparkles, HiOutlineCheckCircle } from "react-icons/hi";
 
 export default function CTASection() {
-  const [email, setEmail] = useState("");
-  const { subscribeNewsletter, scrollToShop } = usePrototype();
+  const { scrollToShop } = usePrototype();
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      subscribeNewsletter(email.trim());
-      setEmail("");
-    }
-  };
+  const partnershipBenefits = [
+    "Harga khusus untuk pembelian dalam jumlah besar",
+    "Dukungan marketing dan branding bersama",
+    "Sistem logistik terintegrasi dan terpercaya",
+    "Tim support dedicated untuk mitra bisnis"
+  ];
 
   return (
     <section id="cta" className="py-16 sm:py-20">
@@ -58,6 +57,7 @@ export default function CTASection() {
           </div>
         </motion.div>
 
+        {/* B2B Partnership Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,31 +66,41 @@ export default function CTASection() {
         >
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
+              <div className="flex items-center gap-2 mb-3">
+                <HiOutlineSparkles className="w-5 h-5 text-brand" />
+                <span className="text-xs font-bold uppercase tracking-widest text-brand">Kerjasama Bisnis</span>
+              </div>
               <h3 className="text-xl font-bold text-gray-900">
-                {ctaData.newsletter.title}
+                Mau Kerjasama B2B & Kemitraan?
               </h3>
               <p className="mt-2 text-sm text-gray-500">
-                {ctaData.newsletter.subtitle}
+                Bergabunglah dengan jaringan mitra Honea dan kembangkan bisnis Anda bersama produk premium kami.
               </p>
+              <ul className="mt-5 space-y-2.5">
+                {partnershipBenefits.map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600">
+                    <HiOutlineCheckCircle className="w-4 h-4 text-brand shrink-0 mt-0.5" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={ctaData.newsletter.placeholder}
-                required
-                className="flex-1 rounded-full border border-gray-200 px-5 py-3 text-sm outline-none transition-all focus:border-brand focus:ring-2 focus:ring-brand/20"
-              />
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="rounded-full gradient-gold px-8 py-3 text-sm font-extrabold text-amber-950 transition-all duration-300 hover:brightness-110 shadow-md hover:shadow-lg"
+            <div className="flex flex-col gap-3">
+              <a
+                href={`mailto:${contact.email}?subject=Inquiry Kerjasama B2B & Kemitraan Honea`}
+                className="inline-flex items-center justify-center rounded-full gradient-gold px-8 py-3.5 text-sm font-extrabold text-amber-950 transition-all duration-300 hover:brightness-110 shadow-md hover:shadow-lg"
               >
-                {ctaData.newsletter.buttonText}
-              </motion.button>
-            </form>
+                Hubungi Tim Kemitraan
+              </a>
+              <a
+                href={contact.social.find((s) => s.id === "whatsapp")?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border-2 border-brand px-8 py-3.5 text-sm font-extrabold text-brand transition-all duration-300 hover:bg-brand-soft"
+              >
+                Chat via WhatsApp
+              </a>
+            </div>
           </div>
         </motion.div>
 

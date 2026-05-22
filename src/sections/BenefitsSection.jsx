@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import { FaHeartbeat, FaShieldAlt, FaSun } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const benefits = [
   {
@@ -27,8 +28,27 @@ const benefits = [
 ];
 
 export default function BenefitsSection() {
+  const location = useLocation();
+  const isUvpPage = location.pathname === "/uvp";
+  const [flippedCards, setFlippedCards] = useState({});
+  const [hoveredCards, setHoveredCards] = useState({});
+
+  const toggleFlip = (id) => {
+    setFlippedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const setHovered = (id, isHovered) => {
+    setHoveredCards((prev) => ({
+      ...prev,
+      [id]: isHovered,
+    }));
+  };
+
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-white pt-4 pb-20 sm:pt-6 sm:pb-28">
       {/* Decorative background blobs */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-golden-pale/50 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-brand-pale/50 blur-3xl"></div>
@@ -49,70 +69,90 @@ export default function BenefitsSection() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-16 max-w-lg sm:mt-20 lg:max-w-none lg:px-12">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
-                className="group relative h-72 w-full perspective-1000"
-                style={{ perspective: "1000px" }}
-              >
-                {/* Flipping Container - Extremely Snappy with duration-200 */}
-                <motion.div
-                  className="relative h-full w-full rounded-3xl transition-transform duration-200"
-                  style={{ transformStyle: "preserve-3d" }}
-                  whileHover={{ rotateY: 180 }}
-                >
-                  {/* Front Side */}
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl glass border border-white/40 p-8 shadow-[var(--shadow-card)] hover:border-brand-light/30 transition-all duration-300 backface-hidden"
-                    style={{ backfaceVisibility: "hidden" }}
-                  >
-                    <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-soft to-brand-pale text-brand shadow-md ring-4 ring-white/60">
-                      <benefit.icon className="h-10 w-10" />
-                    </div>
-                    <h3 className="text-xl font-extrabold text-gray-900">{benefit.title}</h3>
-                    <p className="mt-3 text-sm text-brand font-semibold group-hover:opacity-0 transition-opacity">Arahkan kursor untuk info →</p>
-                  </div>
+        <div className="mx-auto mt-16 max-w-lg sm:mt-20 lg:max-w-none lg:px-12 relative">
+          {/* Ambient spotlights directly behind the cards to maximize the glassmorphism pop */}
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 h-72 w-72 rounded-full bg-brand-light/20 blur-[90px] pointer-events-none" />
+          <div className="absolute top-1/3 right-1/4 -translate-y-1/2 h-72 w-72 rounded-full bg-golden-light/20 blur-[90px] pointer-events-none" />
 
-                  {/* Back Side */}
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-golden p-8 shadow-[var(--shadow-hover)] text-center backface-hidden"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 relative z-10">
+            {benefits.map((benefit, index) => {
+              const isFlipped = !!(flippedCards[benefit.id] || hoveredCards[benefit.id]);
+              return (
+                <motion.div
+                  key={benefit.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: index * 0.2 }}
+                  className="group relative h-72 w-full perspective-1000 cursor-pointer select-none"
+                  style={{ perspective: "1000px" }}
+                  onClick={() => toggleFlip(benefit.id)}
+                  onMouseEnter={() => setHovered(benefit.id, true)}
+                  onMouseLeave={() => setHovered(benefit.id, false)}
+                >
+                  {/* Flipping Container - Stateful rotation on click/tap + Hover rotation on desktop */}
+                  <motion.div
+                    className="relative h-full w-full rounded-3xl"
+                    style={{ transformStyle: "preserve-3d" }}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                   >
-                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/25 text-white shadow-sm ring-1 ring-white/10">
-                      <benefit.icon className="h-7 w-7" />
+                    {/* Front Side */}
+                    <div
+                      className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl glass border border-white/40 p-8 shadow-[var(--shadow-card)] hover:border-brand-light/30 transition-all duration-300 backface-hidden"
+                      style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+                    >
+                      <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-soft to-brand-pale text-brand shadow-md ring-4 ring-white/60">
+                        <benefit.icon className="h-10 w-10" />
+                      </div>
+                      <h3 className="text-xl font-extrabold text-gray-900">{benefit.title}</h3>
+                      <p className="mt-3 text-sm text-brand font-semibold">Ketuk atau Arahkan kursor untuk info →</p>
                     </div>
-                    <h3 className="text-xl font-extrabold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-brand-pale font-medium leading-relaxed text-sm mb-4">
-                      {benefit.description}
-                    </p>
-                    <span className="text-[10px] italic text-amber-300 font-bold bg-black/20 px-2.5 py-1 rounded-full border border-white/5">
-                      {benefit.footnote}
-                    </span>
-                  </div>
+
+                    {/* Back Side */}
+                    <div
+                      className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-golden p-8 shadow-[var(--shadow-hover)] text-center backface-hidden"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/25 text-white shadow-sm ring-1 ring-white/10">
+                        <benefit.icon className="h-7 w-7" />
+                      </div>
+                      <h3 className="text-xl font-extrabold text-white mb-2">{benefit.title}</h3>
+                      <p className="text-brand-pale font-medium leading-relaxed text-sm mb-4">
+                        {benefit.description}
+                      </p>
+                      <span className="text-[10px] italic text-amber-300 font-bold bg-black/20 px-2.5 py-1 rounded-full border border-white/5">
+                        {benefit.footnote}
+                      </span>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Selengkapnya CTA Button to Manfaat Kesehatan */}
-        <div className="text-center mt-12 sm:mt-16">
-          <Link
-            to="/manfaat-kesehatan"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-gradient-to-r from-brand to-brand-dark text-white hover:from-brand-dark hover:to-brand shadow-md transition-all scale-100 hover:scale-105"
+        {!isUvpPage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16 flex justify-center"
           >
-            Lihat Manfaat Lengkap & Jurnal Ilmiah →
-          </Link>
-        </div>
+            <Link
+              to="/uvp#manfaat-kesehatan"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-brand-soft/20 px-8 py-3.5 text-sm font-bold text-brand shadow-sm hover:bg-brand hover:text-white hover:shadow-md transition-all duration-300"
+            >
+              Lihat Manfaat Lengkap & Jurnal Ilmiah &rarr;
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );

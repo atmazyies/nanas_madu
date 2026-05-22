@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { usePrototype } from "../context/PrototypeContext";
+import { Link } from "react-router-dom";
 import logoImg from "../assets/logo nanas madu.png";
+
+const MotionLink = motion(Link);
 
 const container = {
   hidden: {},
@@ -37,26 +39,30 @@ const charVariants = {
 };
 
 const AnimatedText = ({ text, className }) => {
+  const words = text.split(" ");
   return (
     <motion.span 
       variants={textContainerVariants}
-      className={`inline-block ${className}`}
+      className={`inline-flex flex-wrap justify-center ${className}`}
     >
-      {text.split("").map((char, index) => (
-        <motion.span
-          key={index}
-          variants={charVariants}
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
+      {words.map((word, wordIndex) => (
+        <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
+          {word.split("").map((char, charIndex) => (
+            <motion.span
+              key={charIndex}
+              variants={charVariants}
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </span>
       ))}
     </motion.span>
   );
 };
 
 export default function HeroSection() {
-  const { scrollToShop } = usePrototype();
   const { scrollY } = useScroll();
   
   // Transform background gradient based on scroll position
@@ -161,31 +167,29 @@ export default function HeroSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl font-extrabold leading-[1.2] tracking-tight sm:text-6xl lg:text-7xl drop-shadow-2xl mb-8 flex flex-col items-center gap-2"
+            className="text-3xl font-extrabold leading-[1.2] tracking-tight sm:text-6xl lg:text-7xl drop-shadow-2xl mb-8 flex flex-col items-center gap-2"
           >
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-              <AnimatedText text="Brand Nanas" className="text-white" />
-              <AnimatedText text="No. 1" className="text-amber-400 drop-shadow-lg" />
+              <AnimatedText text="Pelopor Nanas Madu" className="text-white" />
             </motion.div>
             <motion.div variants={fadeUp}>
-              <AnimatedText text="di Indonesia" className="text-white" />
+              <AnimatedText text="Premium Asli Pemalang" className="text-amber-400 drop-shadow-lg" />
             </motion.div>
           </motion.h1>
 
-          <p className="mt-4 max-w-2xl text-lg sm:text-xl text-gray-300 drop-shadow-md leading-relaxed font-light">
+          <p className="mt-4 max-w-2xl text-base sm:text-xl text-gray-300 drop-shadow-md leading-relaxed font-light px-2 sm:px-0">
             Sajian premium Nanas Madu asli Pemalang. Ditanam dengan cinta, dipanen pada tingkat kemanisan sempurna. Nikmati kesegaran tropis kaya manfaat di setiap gigitan.
           </p>
 
           <div className="mt-12">
-            <motion.button
-              type="button"
-              onClick={scrollToShop}
+            <MotionLink
+              to="/shop"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(251, 191, 36, 0.4)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:brightness-110 border border-amber-300/30"
+              className="group relative inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:brightness-110 border border-amber-300/30 cursor-pointer"
             >
               <span className="relative z-10">Pesan Sekarang</span>
               <motion.span
@@ -195,7 +199,7 @@ export default function HeroSection() {
               >
                 →
               </motion.span>
-            </motion.button>
+            </MotionLink>
           </div>
         </div>
       </div>

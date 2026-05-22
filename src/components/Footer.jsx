@@ -7,65 +7,71 @@ import { footerLinks } from "../data/navigation";
 import { contact } from "../data/contact";
 import igLifestyle from "../assets/ig_lifestyle.png";
 import logoImg from "../assets/logo nanas madu.png";
+import { usePrototype } from "../context/PrototypeContext";
 
-export default function Footer() {
+export default function Footer({ showInstagram = false }) {
+  const { filterByCategory } = usePrototype();
+
   return (
-    <footer className="bg-surface pt-24 sm:pt-32">
+    <footer className={`bg-surface ${showInstagram ? "pt-24 sm:pt-32" : "pt-12 sm:pt-16"}`}>
       {/* Komunitas Instagram Section */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Bergabung dengan <span className="text-brand">Komunitas Kami</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Bagikan momen manis Anda dengan #HoneaPemalang
-          </p>
-        </div>
+      {showInstagram && (
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Bergabung dengan <span className="text-brand">Komunitas Kami</span>
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Bagikan momen manis Anda dengan #HoneaPemalang
+            </p>
+          </div>
 
-        <div className="mx-auto max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="glass rounded-3xl overflow-hidden shadow-xl"
-          >
-            {/* Fake IG Header */}
-            <div className="flex items-center gap-4 p-4 border-b border-gray-200/50 bg-white/40">
-              <div className="h-10 w-10 rounded-full overflow-hidden border border-gray-200/30 bg-white flex items-center justify-center">
-                <img src={logoImg} alt="Honea Profile" className="h-full w-full object-cover" />
+          <div className="mx-auto max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="glass rounded-3xl overflow-hidden shadow-xl"
+            >
+              {/* Fake IG Header */}
+              <div className="flex items-center gap-4 p-4 border-b border-gray-200/50 bg-white/40">
+                <div className="h-10 w-10 rounded-full overflow-hidden border border-gray-200/30 bg-white flex items-center justify-center">
+                  <img src={logoImg} alt="Honea Profile" className="h-full w-full object-cover" loading="lazy" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">honea</p>
+                  <p className="text-xs text-gray-500">Semarang, Jawa Tengah</p>
+                </div>
               </div>
-              <div>
-                <p className="font-bold text-gray-900 text-sm">honea</p>
-                <p className="text-xs text-gray-500">Semarang, Jawa Tengah</p>
+              
+              {/* IG Photo */}
+              <div className="aspect-[16/9] w-full overflow-hidden">
+                <img
+                  src={igLifestyle}
+                  alt="Lifestyle Honea"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
-            </div>
-            
-            {/* IG Photo */}
-            <div className="aspect-[16/9] w-full overflow-hidden">
-              <img
-                src={igLifestyle}
-                alt="Lifestyle Honea"
-                className="h-full w-full object-cover"
-              />
-            </div>
 
-            {/* Fake IG Footer */}
-            <div className="p-4 bg-white/40">
-              <div className="flex gap-4 mb-2">
-                <FaHeart className="h-6 w-6 text-red-500 cursor-pointer hover:scale-110 transition-transform" />
-                <FiMessageCircle className="h-6 w-6 text-gray-800 cursor-pointer hover:text-brand transition-colors" />
-                <FiSend className="h-6 w-6 text-gray-800 cursor-pointer hover:text-brand transition-colors" />
+              {/* Fake IG Footer */}
+              <div className="p-4 bg-white/40">
+                <div className="flex gap-4 mb-2">
+                  <FaHeart className="h-6 w-6 text-red-500 cursor-pointer hover:scale-110 transition-transform" />
+                  <FiMessageCircle className="h-6 w-6 text-gray-800 cursor-pointer hover:text-brand transition-colors" />
+                  <FiSend className="h-6 w-6 text-gray-800 cursor-pointer hover:text-brand transition-colors" />
+                </div>
+                <p className="text-sm font-bold text-gray-900">Disukai oleh 10.432 lainnya</p>
+                <p className="mt-1 text-sm text-gray-800">
+                  <span className="font-bold mr-2">honea</span>
+                  Panas-panas gini emang paling pas nongkrong bareng bestie sambil minum jus Nanas Madu asli yang super segar! 🍍✨ #Honea #SegarAlami #JusNanasPremium #Semarang
+                </p>
               </div>
-              <p className="text-sm font-bold text-gray-900">Disukai oleh 10.432 lainnya</p>
-              <p className="mt-1 text-sm text-gray-800">
-                <span className="font-bold mr-2">honea</span>
-                Panas-panas gini emang paling pas nongkrong bareng bestie sambil minum jus Nanas Madu asli yang super segar! 🍍✨ #Honea #SegarAlami #JusNanasPremium #Semarang
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Footer */}
       <div className="bg-brand-dark pt-16 pb-8">
@@ -74,7 +80,7 @@ export default function Footer() {
             {/* Col 1: Brand */}
             <div className="space-y-6 lg:col-span-3">
               <Link to="/" className="flex items-center gap-2 text-3xl font-extrabold text-golden-light tracking-tight">
-                <img src={logoImg} alt="Honea Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+                <img src={logoImg} alt="Honea Logo" className="h-10 w-auto object-contain brightness-0 invert" loading="lazy" />
                 <span>Honea.</span>
               </Link>
               <p className="text-sm leading-6 text-brand-pale">
@@ -125,6 +131,11 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
+                      onClick={() => {
+                        if (link.category) {
+                          filterByCategory(link.category);
+                        }
+                      }}
                       className="text-sm leading-6 text-brand-pale hover:text-white transition-colors"
                     >
                       {link.label}

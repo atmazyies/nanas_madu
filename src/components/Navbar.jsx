@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
-  HiOutlineSearch,
   HiOutlineHeart,
   HiOutlineShoppingCart,
-  HiOutlineUser,
   HiMenu,
   HiX,
   HiChevronDown,
@@ -15,12 +13,12 @@ import { usePrototype } from "../context/PrototypeContext";
 import logoImg from "../assets/logo nanas madu.png";
 
 const iconBtn =
-  "relative flex h-10 w-10 items-center justify-center rounded-full text-gray-600 transition-all duration-300 hover:bg-brand-soft hover:text-brand";
+  "relative flex h-10 w-10 items-center justify-center rounded-full text-gray-600 transition-all duration-300 hover:bg-brand-soft hover:text-brand outline-none focus:outline-none focus:ring-0";
 
 function Badge({ count }) {
   if (!count) return null;
   return (
-    <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gradient-to-r from-golden-light to-golden px-1 text-[10px] font-extrabold text-white shadow-sm ring-1 ring-white/10">
+    <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gradient-to-r from-golden-light to-golden px-1 text-[10px] font-extrabold text-white shadow-sm">
       {count > 9 ? "9+" : count}
     </span>
   );
@@ -30,12 +28,13 @@ function MobileNavItem({ link, setMobileOpen }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isActive = location.pathname === link.href || (link.href !== "/" && location.pathname.startsWith(link.href));
+  const { filterByCategory, clearCategoryFilter } = usePrototype();
 
   if (!link.subLinks) {
     return (
       <Link
         to={link.href}
-        className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand ${
+        className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand outline-none focus:outline-none ${
           isActive ? "bg-brand-soft text-brand" : "text-gray-700"
         }`}
         onClick={() => setMobileOpen(false)}
@@ -49,7 +48,7 @@ function MobileNavItem({ link, setMobileOpen }) {
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand ${
+        className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-brand-soft hover:text-brand outline-none focus:outline-none ${
           isActive ? "bg-brand-soft/50 text-brand" : "text-gray-700"
         }`}
       >
@@ -70,8 +69,15 @@ function MobileNavItem({ link, setMobileOpen }) {
                 <Link
                   key={idx}
                   to={sub.href}
-                  className="block rounded-lg px-4 py-2 text-sm text-gray-600 transition-colors hover:bg-brand-soft hover:text-brand"
-                  onClick={() => setMobileOpen(false)}
+                  className="block rounded-lg px-4 py-2 text-sm text-gray-600 transition-colors hover:bg-brand-soft hover:text-brand outline-none focus:outline-none"
+                  onClick={() => {
+                    if (sub.category) {
+                      filterByCategory(sub.category);
+                    } else if (link.id === "shop" && sub.label === "Semua Produk") {
+                      clearCategoryFilter();
+                    }
+                    setMobileOpen(false);
+                  }}
                 >
                   {sub.label}
                 </Link>
@@ -88,7 +94,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const { openPanel, cartCount, wishlist } = usePrototype();
+  const { openPanel, cartCount, wishlist, filterByCategory, clearCategoryFilter } = usePrototype();
   const location = useLocation();
 
   const tickerTexts = [
@@ -123,10 +129,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 border-none outline-none ${
         scrolled
-          ? "glass shadow-[var(--shadow-soft)]"
-          : "bg-white/60 backdrop-blur-sm"
+          ? "bg-white/75 backdrop-blur-xl shadow-sm"
+          : "bg-white/60 backdrop-blur-md"
       }`}
     >
       {/* Top Discount Ticker */}
@@ -151,7 +157,7 @@ export default function Navbar() {
       >
         <Link
           to="/"
-          className="flex items-center gap-1.5 transition-all duration-300 hover:opacity-90"
+          className="flex items-center gap-1.5 transition-all duration-300 hover:opacity-90 outline-none focus:outline-none"
         >
           <img
             src={logoImg}
@@ -175,7 +181,7 @@ export default function Navbar() {
               <li key={link.id} className="relative group">
                 <NavLink
                   to={link.href}
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 py-2 ${
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 py-2 outline-none focus:outline-none ${
                     isActive ? "text-brand" : "text-gray-600 hover:text-brand"
                   }`}
                 >
@@ -194,12 +200,19 @@ export default function Navbar() {
                 )}
                 {link.subLinks && (
                   <div className="absolute left-0 top-full opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 pt-2">
-                    <div className="w-56 rounded-2xl bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-black/5">
+                    <div className="w-56 rounded-2xl bg-white p-3 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border-none outline-none">
                       {link.subLinks.map((sub, idx) => (
                         <Link
                           key={idx}
                           to={sub.href}
-                          className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-600 hover:bg-brand-soft hover:text-brand transition-colors"
+                          onClick={() => {
+                            if (sub.category) {
+                              filterByCategory(sub.category);
+                            } else if (link.id === "shop" && sub.label === "Semua Produk") {
+                              clearCategoryFilter();
+                            }
+                          }}
+                          className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-600 hover:bg-brand-soft hover:text-brand transition-colors outline-none focus:outline-none"
                         >
                           {sub.label}
                         </Link>
@@ -213,14 +226,6 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <button
-            type="button"
-            className={iconBtn}
-            aria-label="Search"
-            onClick={() => openPanel("search")}
-          >
-            <HiOutlineSearch className="h-5 w-5" />
-          </button>
           <button
             type="button"
             className={`${iconBtn} hidden sm:flex`}
@@ -241,14 +246,6 @@ export default function Navbar() {
           </button>
           <button
             type="button"
-            className={`${iconBtn} hidden sm:flex`}
-            aria-label="Login"
-            onClick={() => openPanel("login")}
-          >
-            <HiOutlineUser className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
             className={`${iconBtn} lg:hidden`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -264,7 +261,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-gray-100 bg-white lg:hidden"
+            className="overflow-hidden bg-white lg:hidden border-none outline-none shadow-lg"
           >
             <ul className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (
@@ -272,20 +269,13 @@ export default function Navbar() {
                   <MobileNavItem link={link} setMobileOpen={setMobileOpen} />
                 </li>
               ))}
-              <li className="flex gap-2 border-t border-gray-100 pt-3">
+              <li className="pt-3">
                 <button
                   type="button"
                   onClick={() => { openPanel("wishlist"); setMobileOpen(false); }}
-                  className="flex-1 rounded-xl bg-brand-soft py-2.5 text-sm font-medium text-brand"
+                  className="w-full rounded-xl bg-brand-soft py-2.5 text-sm font-medium text-brand outline-none focus:outline-none"
                 >
                   Wishlist ({wishlist.length})
-                </button>
-                <button
-                  type="button"
-                  onClick={() => { openPanel("login"); setMobileOpen(false); }}
-                  className="flex-1 rounded-xl bg-gray-100 py-2.5 text-sm font-medium text-gray-700"
-                >
-                  Login
                 </button>
               </li>
             </ul>
