@@ -110,52 +110,56 @@ export default function BenefitsSection() {
                         <benefit.icon className="h-10 w-10" />
                       </div>
                       <h3 className="text-xl font-extrabold text-gray-900">{benefit.title}</h3>
-                      <p className="mt-3 text-sm text-brand font-semibold">Ketuk atau Arahkan kursor untuk info →</p>
-                    </div>
-
-                    {/* Back Side */}
-                    <div
-                      className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-golden p-8 shadow-[var(--shadow-hover)] text-center backface-hidden"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        WebkitBackfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)",
-                      }}
-                    >
-                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/25 text-white shadow-sm ring-1 ring-white/10">
-                        <benefit.icon className="h-7 w-7" />
-                      </div>
-                      <h3 className="text-xl font-extrabold text-white mb-2">{benefit.title}</h3>
-                      <p className="text-brand-pale font-medium leading-relaxed text-sm mb-4">
-                        {benefit.description}
+                      <p className="mt-3 text-sm text-brand font-semibold text-center px-4">
+                        <span className="inline sm:hidden">Ketuk untuk detail &rarr;</span>
+                        <span className="hidden sm:inline">Arahkan kursor untuk detail &rarr;</span>
                       </p>
-                      <span className="text-[10px] italic text-amber-300 font-bold bg-black/20 px-2.5 py-1 rounded-full border border-white/5">
-                        {benefit.footnote}
-                      </span>
                     </div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {!isUvpPage && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 flex justify-center"
-          >
-            <Link
-              to="/uvp#manfaat-kesehatan"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-brand-soft/20 px-8 py-3.5 text-sm font-bold text-brand shadow-sm hover:bg-brand hover:text-white hover:shadow-md transition-all duration-300"
-            >
-              Lihat Manfaat Lengkap & Jurnal Ilmiah &rarr;
-            </Link>
-          </motion.div>
-        )}
+ 
+                     {/* Back Side */}
+                     <div
+                       className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-golden p-8 shadow-[var(--shadow-hover)] text-center backface-hidden"
+                       style={{
+                         backfaceVisibility: "hidden",
+                         WebkitBackfaceVisibility: "hidden",
+                         transform: "rotateY(180deg)",
+                       }}
+                     >
+                       <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/25 text-white shadow-sm ring-1 ring-white/10">
+                         <benefit.icon className="h-7 w-7" />
+                       </div>
+                       <h3 className="text-xl font-extrabold text-white mb-2">{benefit.title}</h3>
+                       <p className="text-brand-pale font-medium leading-relaxed text-sm mb-4">
+                         {benefit.description}
+                       </p>
+                       <span className="text-[10px] italic text-amber-300 font-bold bg-black/20 px-2.5 py-1 rounded-full border border-white/5">
+                         {benefit.footnote}
+                       </span>
+                     </div>
+                   </motion.div>
+                 </motion.div>
+               );
+             })}
+           </div>
+         </div>
+ 
+         {!isUvpPage && (
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6, delay: 0.4 }}
+             className="mt-16 flex justify-center"
+           >
+             <Link
+               to="/uvp#manfaat-kesehatan"
+               className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 bg-brand-soft/20 px-6 py-3 sm:px-8 sm:py-3.5 text-sm font-bold text-brand shadow-sm hover:bg-brand hover:text-white hover:shadow-md transition-all duration-300 text-center"
+             >
+               <span className="inline sm:hidden">Lihat Semua Manfaat &rarr;</span>
+               <span className="hidden sm:inline">Lihat Manfaat Lengkap & Jurnal Ilmiah &rarr;</span>
+             </Link>
+           </motion.div>
+         )}
       </div>
     </section>
   );
