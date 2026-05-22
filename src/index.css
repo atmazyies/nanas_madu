@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #22c55e;
+  --color-brand-light: #86efac;
+  --color-brand-pale: #dcfce7;
+  --color-brand-soft: #f0fdf4;
+  --color-cta: #ef4444;
+  --color-cta-hover: #dc2626;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-surface: #f9fafb;
+  --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.08);
+  --shadow-card: 0 8px 32px -8px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 16px 40px -12px rgb(34 197 94 / 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-brand-pale);
+  color: var(--color-text);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.gradient-soft {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f9fafb 100%);
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 0%,
+    #e5e7eb 50%,
+    #f3f4f6 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5s ease-in-out 1s infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #f0fdf4 0%,
+    #ffffff 35%,
+    #f9fafb 65%,
+    #ecfdf5 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
