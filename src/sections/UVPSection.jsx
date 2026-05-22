@@ -30,7 +30,7 @@ export default function UVPSection() {
               Membawa Manisnya Pemalang <br className="hidden sm:block" />
               <span className="text-gradient-brand mt-2 inline-block font-extrabold">Langsung dari Kebun Binaan</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-10 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 mb-10 leading-relaxed max-w-4xl mx-auto text-justify sm:text-center">
               Berawal dari tekad melestarikan pertanian lokal lereng Gunung Slamet, Honea menghadirkan keaslian Nanas Madu terbaik dari Kecamatan Belik. Dirawat tulus oleh kelompok tani tradisional secara organik, dipanen manual saat fajar kala buah matang sempurna di pohon—tanpa proses karbit kimia sintetis demi menjaga enzim alami bromelain yang menyehatkan tubuh.
             </p>
             <Link
