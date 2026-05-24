@@ -1,5 +1,19 @@
 import { createContext, useContext, useState, useCallback, useMemo, useEffect } from "react";
-import { products } from "../data/products";
+import { products as rawProducts } from "../data/products";
+
+const products = rawProducts.map((p) => {
+  const reviewCount = Math.floor(((p.id * 17) % 89) + 12);
+  const soldCount = Math.floor(((p.id * 43) % 450) + 50);
+  const daysAgo = Math.floor((p.id * 7) % 30);
+  // Generate a deterministic past ISO date
+  const updatedAt = new Date(1779538400000 - daysAgo * 24 * 60 * 60 * 1000).toISOString();
+  return {
+    ...p,
+    reviewCount,
+    soldCount,
+    updatedAt,
+  };
+});
 
 const PrototypeContext = createContext(null);
 

@@ -18,6 +18,9 @@ const FAQPage = lazy(() => import("./pages/FAQPage"));
 const KemitraanPage = lazy(() => import("./pages/KemitraanPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
             <Route path="/kemitraan" element={<KemitraanPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           </Routes>
         </Suspense>
         <FloatingWhatsApp />

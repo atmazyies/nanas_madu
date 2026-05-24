@@ -66,12 +66,22 @@ export default function ProductCard({ product, index = 0 }) {
           {product.title}
         </h3>
 
-        <div className="mt-2 flex items-center gap-1">
-          <HiStar className="h-4 w-4 text-amber-400" />
-          <span className="text-xs font-medium text-gray-600">
-            {product.rating}
-          </span>
-          <span className="text-xs text-gray-400">· {product.category}</span>
+        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+          <div className="flex items-center gap-0.5">
+            <HiStar className="h-4 w-4 text-amber-400" />
+            <span className="font-semibold text-gray-700">
+              {product.rating}
+            </span>
+          </div>
+          {product.reviewCount !== undefined && (
+            <span className="text-gray-400">({product.reviewCount} ulasan)</span>
+          )}
+          <span className="text-gray-300">|</span>
+          {product.soldCount !== undefined && (
+            <span className="font-semibold text-brand-dark">
+              Terjual {product.soldCount}+
+            </span>
+          )}
         </div>
 
         <div className="mt-3 flex items-center justify-between">

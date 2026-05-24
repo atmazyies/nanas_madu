@@ -244,6 +244,12 @@ export default function Navbar() {
             <HiOutlineShoppingCart className="h-5 w-5" />
             <Badge count={cartCount} />
           </button>
+          <Link
+            to="/login"
+            className="hidden sm:inline-flex items-center justify-center rounded-xl bg-brand-soft border border-brand/20 px-4.5 py-2 text-xs font-semibold text-brand transition-all duration-300 hover:bg-brand hover:text-white hover:border-transparent active:scale-95 outline-none focus:outline-none"
+          >
+            Masuk
+          </Link>
           <button
             type="button"
             className={`${iconBtn} lg:hidden`}
@@ -269,7 +275,14 @@ export default function Navbar() {
                   <MobileNavItem link={link} setMobileOpen={setMobileOpen} />
                 </li>
               ))}
-              <li className="pt-3">
+              <li className="pt-3 flex flex-col gap-2">
+                <Link
+                  to="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center rounded-xl bg-brand py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-dark transition-all duration-300 outline-none focus:outline-none"
+                >
+                  Masuk / Daftar
+                </Link>
                 <button
                   type="button"
                   onClick={() => { openPanel("wishlist"); setMobileOpen(false); }}

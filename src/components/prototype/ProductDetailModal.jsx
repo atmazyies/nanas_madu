@@ -178,11 +178,21 @@ export default function ProductDetailModal() {
                   {selectedProduct.title}
                 </h2>
 
-                <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
                   <div className="flex items-center gap-1">
                     <HiStar className="h-4 w-4 text-amber-400" />
                     <span className="font-semibold">{selectedProduct.rating}</span>
                   </div>
+                  {selectedProduct.reviewCount !== undefined && (
+                    <span className="text-gray-500">
+                      ({selectedProduct.reviewCount} ulasan)
+                    </span>
+                  )}
+                  {selectedProduct.soldCount !== undefined && (
+                    <span className="font-semibold text-brand bg-brand-soft/40 px-2 py-0.5 rounded-lg text-xs">
+                      Terjual {selectedProduct.soldCount}+
+                    </span>
+                  )}
                   <span
                     className={`font-medium ${
                       selectedProduct.stock === "Low Stock"

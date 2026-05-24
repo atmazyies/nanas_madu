@@ -11,11 +11,11 @@ export const products = [
     sku: "NANAS-JUI-001",
     weight: "500ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1494253109108-2ce68ac14fa6?w=600&h=600&fit=crop",
+    image: "/images/product-1.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1494253109108-2ce68ac14fa6?w=600&h=600&fit=crop", alt: "Sari Nanas Madu 1" },
-      { id: 2, src: "https://images.unsplash.com/photo-1622597467836-4b47a0a0b0b0?w=600&h=600&fit=crop", alt: "Sari Nanas Madu 2" },
-      { id: 3, src: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&h=600&fit=crop", alt: "Sari Nanas Madu 3" },
+      { id: 1, src: "/images/product-1-1.webp", alt: "Sari Nanas Madu 1" },
+      { id: 2, src: "/images/product-1-2.webp", alt: "Sari Nanas Madu 2" },
+      { id: 3, src: "/images/product-1-3.webp", alt: "Sari Nanas Madu 3" },
     ],
     colors: [
       { id: "yellow", name: "Golden Yellow", hex: "#FDD835" },
@@ -48,10 +48,10 @@ export const products = [
     sku: "NANAS-FRT-002",
     weight: "400g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1587883012610-e3df17d41270?w=600&h=600&fit=crop",
+    image: "/images/product-2.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1587883012610-e3df17d41270?w=600&h=600&fit=crop", alt: "Nanas Potong 1" },
-      { id: 2, src: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&h=600&fit=crop", alt: "Nanas Utuh" },
+      { id: 1, src: "/images/product-2-1.webp", alt: "Nanas Potong 1" },
+      { id: 2, src: "/images/product-2-2.webp", alt: "Nanas Utuh" },
     ],
     colors: [
       { id: "natural", name: "Natural Yellow", hex: "#FFEE58" },
@@ -83,10 +83,10 @@ export const products = [
     sku: "NANAS-JAM-003",
     weight: "250g",
     origin: "Jawa Tengah, Indonesia",
-    image: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop",
+    image: "/images/product-3.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop", alt: "Selai Nanas 1" },
-      { id: 2, src: "https://images.unsplash.com/photo-1558642452-9d2a7afa7a65?w=600&h=600&fit=crop", alt: "Selai Nanas 2" },
+      { id: 1, src: "/images/product-3-1.webp", alt: "Selai Nanas 1" },
+      { id: 2, src: "/images/product-3-2.webp", alt: "Selai Nanas 2" },
     ],
     colors: [
       { id: "gold", name: "Golden Jam", hex: "#FFCA28" },
@@ -118,9 +118,9 @@ export const products = [
     sku: "NANAS-SNK-004",
     weight: "150g",
     origin: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1622921434311-cb233b2a2656?w=600&h=600&fit=crop",
+    image: "/images/product-4.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1622921434311-cb233b2a2656?w=600&h=600&fit=crop", alt: "Manisan Nanas 1" },
+      { id: 1, src: "/images/product-4-1.webp", alt: "Manisan Nanas 1" },
     ],
     colors: [
       { id: "amber", name: "Dried Amber", hex: "#FFB300" },
@@ -152,9 +152,9 @@ export const products = [
     sku: "NANAS-SYR-005",
     weight: "500ml",
     origin: "Jawa Tengah, Indonesia",
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&h=600&fit=crop",
+    image: "/images/product-5.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&h=600&fit=crop", alt: "Sirup Nanas 1" },
+      { id: 1, src: "/images/product-5-1.webp", alt: "Sirup Nanas 1" },
     ],
     colors: [
       { id: "yellow", name: "Bright Yellow", hex: "#FFEE58" },
@@ -186,9 +186,9 @@ export const products = [
     sku: "NANAS-SUP-006",
     weight: "60 Kapsul",
     origin: "Jakarta, Indonesia",
-    image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=600&fit=crop",
+    image: "/images/product-6.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=600&fit=crop", alt: "Suplemen Bromelain 1" },
+      { id: 1, src: "/images/product-6-1.webp", alt: "Suplemen Bromelain 1" },
     ],
     colors: [
       { id: "white", name: "Capsule Putih", hex: "#F5F5F5" },
@@ -220,9 +220,9 @@ export const products = [
     sku: "NANAS-CHP-007",
     weight: "100g",
     origin: "Subang, Indonesia",
-    image: "https://images.unsplash.com/photo-1513269811462-2a7ab2da6bc3?w=600&h=600&fit=crop",
+    image: "/images/product-7.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1513269811462-2a7ab2da6bc3?w=600&h=600&fit=crop", alt: "Keripik Nanas 1" },
+      { id: 1, src: "/images/product-7-1.webp", alt: "Keripik Nanas 1" },
     ],
     colors: [
       { id: "gold", name: "Crispy Gold", hex: "#FFCA28" },
@@ -254,9 +254,9 @@ export const products = [
     sku: "NANAS-SPK-008",
     weight: "330ml",
     origin: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1563917614275-1462d77d8bfb?w=600&h=600&fit=crop",
+    image: "/images/product-8.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1563917614275-1462d77d8bfb?w=600&h=600&fit=crop", alt: "Sparkling Nanas 1" },
+      { id: 1, src: "/images/product-8-1.webp", alt: "Sparkling Nanas 1" },
     ],
     colors: [
       { id: "clear", name: "Clear Gold", hex: "#FFF59D" },
@@ -287,9 +287,9 @@ export const products = [
     sku: "NANAS-WHO-009",
     weight: "1.2kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&h=600&fit=crop",
+    image: "/images/product-9.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&h=600&fit=crop", alt: "Nanas Utuh" },
+      { id: 1, src: "/images/product-9-1.webp", alt: "Nanas Utuh" },
     ],
     colors: [
       { id: "fresh", name: "Segar Utuh", hex: "#4CAF50" },
@@ -321,9 +321,9 @@ export const products = [
     sku: "NANAS-JUI-010",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1622597467836-4b47a0a0b0b0?w=600&h=600&fit=crop",
+    image: "/images/product-10.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1622597467836-4b47a0a0b0b0?w=600&h=600&fit=crop", alt: "Jus Nanas Jahe" },
+      { id: 1, src: "/images/product-10-1.webp", alt: "Jus Nanas Jahe" },
     ],
     colors: [
       { id: "ginger", name: "Ginger Yellow", hex: "#FFF176" },
@@ -354,9 +354,9 @@ export const products = [
     sku: "NANAS-PAN-011",
     weight: "180g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1596755389378-55e7a8558d32?w=600&h=600&fit=crop",
+    image: "/images/product-11.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1596755389378-55e7a8558d32?w=600&h=600&fit=crop", alt: "Sambal Nanas" },
+      { id: 1, src: "/images/product-11-1.webp", alt: "Sambal Nanas" },
     ],
     colors: [
       { id: "spicy", name: "Merah Merona", hex: "#E53935" },
@@ -387,9 +387,9 @@ export const products = [
     sku: "NANAS-HAM-012",
     weight: "3.5kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1546548970-7178531a2722?w=600&h=600&fit=crop",
+    image: "/images/product-12.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1546548970-7178531a2722?w=600&h=600&fit=crop", alt: "Hampers Premium" },
+      { id: 1, src: "/images/product-12-1.webp", alt: "Hampers Premium" },
     ],
     colors: [
       { id: "royal", name: "Gold Exclusive", hex: "#D4AF37" },
@@ -420,9 +420,9 @@ export const products = [
     sku: "NANAS-SNK-013",
     weight: "250g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1506368249639-6a2c610b6723?w=600&h=600&fit=crop",
+    image: "/images/product-13.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1506368249639-6a2c610b6723?w=600&h=600&fit=crop", alt: "Dodol Nanas" },
+      { id: 1, src: "/images/product-13-1.webp", alt: "Dodol Nanas" },
     ],
     colors: [
       { id: "brown", name: "Coklat Legit", hex: "#795548" },
@@ -453,9 +453,9 @@ export const products = [
     sku: "NANAS-FRZ-014",
     weight: "500g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1587593810167-a84920a6a712?w=600&h=600&fit=crop",
+    image: "/images/product-14.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1587593810167-a84920a6a712?w=600&h=600&fit=crop", alt: "Nanas Frozen" },
+      { id: 1, src: "/images/product-14-1.webp", alt: "Nanas Frozen" },
     ],
     colors: [
       { id: "frozen", name: "Ice Gold", hex: "#E0F7FA" },
@@ -486,9 +486,9 @@ export const products = [
     sku: "NANAS-JUI-015",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&h=600&fit=crop",
+    image: "/images/product-15.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&h=600&fit=crop", alt: "Jus Aloe Vera" },
+      { id: 1, src: "/images/product-15-1.webp", alt: "Jus Aloe Vera" },
     ],
     colors: [
       { id: "aloe", name: "Aloe Green-Yellow", hex: "#C5E1A5" },
@@ -519,9 +519,9 @@ export const products = [
     sku: "NANAS-SUP-016",
     weight: "350ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1620916566395-39cb8dbd4e5c?w=600&h=600&fit=crop",
+    image: "/images/Cuka Nanas Madu Murni.png",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1620916566395-39cb8dbd4e5c?w=600&h=600&fit=crop", alt: "Cuka Nanas" },
+      { id: 1, src: "/images/Cuka Nanas Madu Murni.png", alt: "Cuka Nanas Madu Murni" },
     ],
     colors: [
       { id: "vinegar", name: "Acid Amber", hex: "#FFE082" },
@@ -552,9 +552,9 @@ export const products = [
     sku: "NANAS-CHP-017",
     weight: "100g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=600&fit=crop",
+    image: "/images/product-17.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=600&fit=crop", alt: "Keripik Kaca Nanas" },
+      { id: 1, src: "/images/product-17-1.webp", alt: "Keripik Kaca Nanas" },
     ],
     colors: [
       { id: "redglass", name: "Glass Red", hex: "#EF5350" },
@@ -585,9 +585,9 @@ export const products = [
     sku: "NANAS-HAM-018",
     weight: "2kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1505252582940-36573675feb9?w=600&h=600&fit=crop",
+    image: "/images/product-18.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1505252582940-36573675feb9?w=600&h=600&fit=crop", alt: "Hampers Oleh Oleh" },
+      { id: 1, src: "/images/product-18-1.webp", alt: "Hampers Oleh Oleh" },
     ],
     colors: [
       { id: "local", name: "Kardus Craft Tradisional", hex: "#8D6E63" },
@@ -616,9 +616,9 @@ export const products = [
     sku: "NANAS-PAN-019",
     weight: "150g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1612817288484-6f916f77496a?w=600&h=600&fit=crop",
+    image: "/images/product-19.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1612817288484-6f916f77496a?w=600&h=600&fit=crop", alt: "Nanas Bubuk" },
+      { id: 1, src: "/images/product-19-1.webp", alt: "Nanas Bubuk" },
     ],
     colors: [
       { id: "powder", name: "Yellow Powder", hex: "#FFF9C4" },
@@ -649,9 +649,9 @@ export const products = [
     sku: "NANAS-SUP-020",
     weight: "20 Kantung",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&h=600&fit=crop",
+    image: "/images/product-20.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&h=600&fit=crop", alt: "Teh Herbal" },
+      { id: 1, src: "/images/product-20-1.webp", alt: "Teh Herbal" },
     ],
     colors: [
       { id: "tea", name: "Teh Gold", hex: "#FFE082" },
@@ -681,9 +681,9 @@ export const products = [
     sku: "NANAS-JUI-021",
     weight: "350ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1505252582940-36573675feb9?w=600&h=600&fit=crop",
+    image: "/images/product-21.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1505252582940-36573675feb9?w=600&h=600&fit=crop", alt: "Smoothie Nanas" },
+      { id: 1, src: "/images/product-21-1.webp", alt: "Smoothie Nanas" },
     ],
     colors: [
       { id: "mango", name: "Mango Gold", hex: "#FFA726" },
@@ -714,9 +714,9 @@ export const products = [
     sku: "NANAS-SNK-022",
     weight: "400g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1519708223418-c8fd9a32b7a2?w=600&h=600&fit=crop",
+    image: "/images/product-22.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1519708223418-c8fd9a32b7a2?w=600&h=600&fit=crop", alt: "Asinan Nanas" },
+      { id: 1, src: "/images/product-22-1.webp", alt: "Asinan Nanas" },
     ],
     colors: [
       { id: "spicysweety", name: "Kuah Cabai Merah", hex: "#EF5350" },
@@ -746,9 +746,9 @@ export const products = [
     sku: "NANAS-PAN-023",
     weight: "250g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop",
+    image: "/images/product-23.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop", alt: "Saus BBQ" },
+      { id: 1, src: "/images/product-23-1.webp", alt: "Saus BBQ" },
     ],
     colors: [
       { id: "bbq", name: "Dark Ruby BBQ", hex: "#5D4037" },
@@ -778,9 +778,9 @@ export const products = [
     sku: "NANAS-WHO-024",
     weight: "3.2kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1587883012610-e3df17d41270?w=600&h=600&fit=crop",
+    image: "/images/product-24.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1587883012610-e3df17d41270?w=600&h=600&fit=crop", alt: "Paket Hemat" },
+      { id: 1, src: "/images/product-24-1.webp", alt: "Paket Hemat" },
     ],
     colors: [
       { id: "hemat", name: "3 Pcs Segar", hex: "#81C784" },
@@ -810,9 +810,9 @@ export const products = [
     sku: "NANAS-SUP-025",
     weight: "50 Kapsul",
     origin: "Jakarta, Indonesia",
-    image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=600&fit=crop",
+    image: "/images/product-25.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=600&fit=crop", alt: "Kapsul Vitamin C" },
+      { id: 1, src: "/images/product-25-1.webp", alt: "Kapsul Vitamin C" },
     ],
     colors: [
       { id: "vitc", name: "Kapsul Orange-Kuning", hex: "#FFB74D" },
@@ -842,9 +842,9 @@ export const products = [
     sku: "NANAS-HAM-026",
     weight: "1.2kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop",
+    image: "/images/product-26.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1515942400420-2b98fee1f7b1?w=600&h=600&fit=crop", alt: "Hampers Mini" },
+      { id: 1, src: "/images/product-26-1.webp", alt: "Hampers Mini" },
     ],
     colors: [
       { id: "minigift", name: "Craft Mini Box", hex: "#A1887F" },
@@ -873,9 +873,9 @@ export const products = [
     sku: "NANAS-SNK-027",
     weight: "200g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=600&fit=crop",
+    image: "/images/product-27.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=600&fit=crop", alt: "Puding Jelly Nanas" },
+      { id: 1, src: "/images/product-27-1.webp", alt: "Puding Jelly Nanas" },
     ],
     colors: [
       { id: "jelly", name: "Jelly Yellow Gold", hex: "#FFF59D" },
@@ -906,9 +906,9 @@ export const products = [
     sku: "NANAS-FRT-028",
     weight: "500g",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1604503468506-a8da358b3f6e?w=600&h=600&fit=crop",
+    image: "/images/product-28.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1604503468506-a8da358b3f6e?w=600&h=600&fit=crop", alt: "Nanas Spiral" },
+      { id: 1, src: "/images/product-28-1.webp", alt: "Nanas Spiral" },
     ],
     colors: [
       { id: "spiral", name: "Spiral Cut Gold", hex: "#FFE082" },
@@ -938,9 +938,9 @@ export const products = [
     sku: "NANAS-JUI-029",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=600&fit=crop",
+    image: "/images/product-29.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=600&fit=crop", alt: "Jus Nanas Mint" },
+      { id: 1, src: "/images/product-29-1.webp", alt: "Jus Nanas Mint" },
     ],
     colors: [
       { id: "minty", name: "Minty Yellow Green", hex: "#D4E157" },
@@ -971,9 +971,9 @@ export const products = [
     sku: "NANAS-IND-030",
     weight: "2.5kg",
     origin: "Pemalang, Indonesia",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=600&fit=crop",
+    image: "/images/product-30.webp",
     images: [
-      { id: 1, src: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=600&fit=crop", alt: "Konsentrat Nanas" },
+      { id: 1, src: "/images/product-30-1.webp", alt: "Konsentrat Nanas" },
     ],
     colors: [
       { id: "concentrate", name: "Deep Gold Concentrate", hex: "#F57C00" },
