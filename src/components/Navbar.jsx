@@ -152,12 +152,12 @@ export default function Navbar() {
       </div>
 
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-4 xl:px-8"
         aria-label="Main navigation"
       >
         <Link
           to="/"
-          className="flex items-center gap-1.5 transition-all duration-300 hover:opacity-90 outline-none focus:outline-none"
+          className="flex items-center gap-1.5 transition-all duration-300 hover:opacity-90 outline-none focus:outline-none shrink-0"
         >
           <img
             src={logoImg}
@@ -174,20 +174,20 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center lg:gap-3 xl:gap-6 lg:flex mx-4">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.href || (link.href !== "/" && location.pathname.startsWith(link.href));
             return (
               <li key={link.id} className="relative group">
                 <NavLink
                   to={link.href}
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 py-2 outline-none focus:outline-none ${
+                  className={`flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm font-semibold whitespace-nowrap transition-colors duration-300 py-2 outline-none focus:outline-none ${
                     isActive ? "text-brand" : "text-gray-600 hover:text-brand"
                   }`}
                 >
                   {link.label}
                   {link.subLinks && (
-                    <HiChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                    <HiChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180 shrink-0" />
                   )}
                 </NavLink>
                 {/* Active indicator */}
@@ -225,7 +225,7 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           <button
             type="button"
             className={`${iconBtn} hidden sm:flex`}
