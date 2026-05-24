@@ -55,7 +55,7 @@ export default function AboutPage() {
               >
                 <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1595348020949-87cdfbb44174?w=800&h=600&fit=crop"
+                    src="/images/about_honea.jpg"
                     alt="Kebun Nanas Madu Pemalang"
                     className="h-full w-full object-cover"
                   />
