@@ -5,6 +5,8 @@ import PageBanner from "../components/PageBanner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { contact } from "../data/contact";
+import MarketplaceSection from "../sections/MarketplaceSection";
+import AffiliatorSection from "../sections/AffiliatorSection";
 
 export default function KemitraanPage() {
   const models = [
@@ -283,6 +285,9 @@ export default function KemitraanPage() {
 
         </div>
       </main>
+
+      <AffiliatorSection />
+      <MarketplaceSection />
 
       <Footer showInstagram={true} />
     </>

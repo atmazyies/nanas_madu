@@ -3,7 +3,16 @@ import LazyImage from "./LazyImage";
 import { usePrototype } from "../context/PrototypeContext";
 
 export default function CategoryCard({ category, index = 0 }) {
-  const { filterByCategory } = usePrototype();
+  const { filterByCategory, categoryFilter, clearCategoryFilter } = usePrototype();
+  const isActive = categoryFilter === category.title;
+
+  const handleClick = () => {
+    if (isActive) {
+      clearCategoryFilter();
+    } else {
+      filterByCategory(category.title);
+    }
+  };
 
   return (
     <motion.article
@@ -15,11 +24,15 @@ export default function CategoryCard({ category, index = 0 }) {
       whileTap={{ scale: 0.98 }}
       role="button"
       tabIndex={0}
-      onClick={() => filterByCategory(category.title)}
-      onKeyDown={(e) => e.key === "Enter" && filterByCategory(category.title)}
-      className="group min-w-[140px] shrink-0 cursor-pointer rounded-[20px] bg-white p-6 shadow-[var(--shadow-soft)] transition-shadow duration-300 hover:shadow-[var(--shadow-hover)] sm:min-w-[160px]"
+      onClick={handleClick}
+      onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      className={`group min-w-[140px] shrink-0 cursor-pointer rounded-[20px] bg-white p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:shadow-[var(--shadow-hover)] sm:min-w-[160px] ${
+        isActive ? "ring-2 ring-brand bg-green-50/20 scale-[1.02] shadow-[var(--shadow-hover)]" : ""
+      }`}
     >
-      <div className="mx-auto h-20 w-20 overflow-hidden rounded-full border-4 border-brand-soft bg-brand-soft/50 transition-transform duration-300 group-hover:scale-105">
+      <div className={`mx-auto h-20 w-20 overflow-hidden rounded-full border-4 transition-all duration-300 group-hover:scale-105 ${
+        isActive ? "border-brand bg-brand-soft" : "border-brand-soft bg-brand-soft/50"
+      }`}>
         <LazyImage
           src={category.image}
           alt={category.title}
@@ -27,7 +40,7 @@ export default function CategoryCard({ category, index = 0 }) {
           wrapperClassName="h-full w-full"
         />
       </div>
-      <h3 className="mt-4 text-center text-sm font-semibold text-gray-800">
+      <h3 className={`mt-4 text-center text-sm font-bold transition-colors ${isActive ? "text-brand" : "text-gray-800"}`}>
         {category.title}
       </h3>
       <p className="mt-1 text-center text-xs text-gray-400">{category.products}</p>

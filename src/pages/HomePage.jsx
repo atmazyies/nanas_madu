@@ -10,6 +10,7 @@ import PromotionStrategySection from "../sections/PromotionStrategySection";
 import TopProductsSection from "../sections/TopProductsSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import ContactSection from "../sections/ContactSection";
+import MarketplaceSection from "../sections/MarketplaceSection";
 
 export default function HomePage() {
   return (
@@ -17,11 +18,11 @@ export default function HomePage() {
       <Navbar />
       <main className="bg-surface">
         <HeroSection />
-
         <UVPSection />
         <BenefitsSection />
         <HotCategoriesSection />
         <TopProductsSection limit={4} />
+        <MarketplaceSection />
         <PromotionStrategySection />
         <TestimonialsSection />
         <ContactSection />

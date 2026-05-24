@@ -39,13 +39,14 @@ export const navLinks = [
     ],
   },
   {
-    id: "kemitraan",
-    label: "Kemitraan",
+    id: "kerjasama",
+    label: "Kerjasama",
     href: "/kemitraan",
     subLinks: [
       { label: "Peluang Kolaborasi", href: "/kemitraan" },
       { label: "Pengajuan Sponsorship", href: "/kemitraan#sponsorship" },
-      { label: "Hubungi Tim B2B", href: "/kemitraan" },
+      { label: "Program Affiliator / Kreator", href: "/kemitraan#affiliator" },
+      { label: "Marketplace (Shopee, TikTok, Lazada)", href: "/kemitraan#marketplace" },
     ],
   },
   {
@@ -75,7 +76,7 @@ export const footerLinks = {
     { label: "Sejarah Nanas Madu", href: "/sejarah-nanas" },
     { label: "Keunggulan", href: "/uvp" },
     { label: "Katalog Produk", href: "/shop" },
-    { label: "Kemitraan", href: "/kemitraan" },
+    { label: "Kerjasama", href: "/kemitraan" },
     { label: "Artikel & Edukasi", href: "/blog" },
     { label: "Tanya Jawab / FAQ", href: "/faq" },
     { label: "Hubungi Kami", href: "/kontak" },
@@ -91,8 +92,9 @@ export const footerLinks = {
   layanan: [
     { label: "Tanya Jawab / FAQ", href: "/faq" },
     { label: "Hubungi Kami", href: "/kontak" },
-    { label: "Kemitraan & Franchise", href: "/kemitraan" },
-    { label: "Supply B2B", href: "/kemitraan" },
+    { label: "Kerjasama & Franchise", href: "/kemitraan" },
+    { label: "Program Affiliator / Kreator", href: "/kemitraan#affiliator" },
+    { label: "Marketplace Resmi", href: "/kemitraan#marketplace" },
   ],
 };
 

@@ -11,9 +11,9 @@ export const products = [
     sku: "NANAS-JUI-001",
     weight: "500ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-1.webp",
+    image: "/images/sari_nanas_madu_premium.webp",
     images: [
-      { id: 1, src: "/images/product-1-1.webp", alt: "Sari Nanas Madu 1" },
+      { id: 1, src: "/images/jus_nanas_madu_22_11zon.webp", alt: "Sari Nanas Madu 1" },
       { id: 2, src: "/images/product-1-2.webp", alt: "Sari Nanas Madu 2" },
       { id: 3, src: "/images/product-1-3.webp", alt: "Sari Nanas Madu 3" },
     ],
@@ -48,9 +48,9 @@ export const products = [
     sku: "NANAS-FRT-002",
     weight: "400g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-2.webp",
+    image: "/images/nanas_madu_potong_segar.webp",
     images: [
-      { id: 1, src: "/images/product-2-1.webp", alt: "Nanas Potong 1" },
+      { id: 1, src: "/images/bcf78ebe-2490-4562-9b58-b947a71d0606_21_11zon.webp", alt: "Nanas Potong 1" },
       { id: 2, src: "/images/product-2-2.webp", alt: "Nanas Utuh" },
     ],
     colors: [
@@ -83,9 +83,9 @@ export const products = [
     sku: "NANAS-JAM-003",
     weight: "250g",
     origin: "Jawa Tengah, Indonesia",
-    image: "/images/product-3.webp",
+    image: "/images/selai_nanas_madu_organik.webp",
     images: [
-      { id: 1, src: "/images/product-3-1.webp", alt: "Selai Nanas 1" },
+      { id: 1, src: "/images/selai_nanas_madu_2_11zon.webp", alt: "Selai Nanas 1" },
       { id: 2, src: "/images/product-3-2.webp", alt: "Selai Nanas 2" },
     ],
     colors: [
@@ -118,9 +118,9 @@ export const products = [
     sku: "NANAS-SNK-004",
     weight: "150g",
     origin: "Bali, Indonesia",
-    image: "/images/product-4.webp",
+    image: "/images/manisan_nanas_madu_kering.webp",
     images: [
-      { id: 1, src: "/images/product-4-1.webp", alt: "Manisan Nanas 1" },
+      { id: 1, src: "/images/manisan_nanas_madu_kering_1_11zon.webp", alt: "Manisan Nanas 1" },
     ],
     colors: [
       { id: "amber", name: "Dried Amber", hex: "#FFB300" },
@@ -152,9 +152,9 @@ export const products = [
     sku: "NANAS-SYR-005",
     weight: "500ml",
     origin: "Jawa Tengah, Indonesia",
-    image: "/images/product-5.webp",
+    image: "/images/sirup_nanas_madu_asli.webp",
     images: [
-      { id: 1, src: "/images/product-5-1.webp", alt: "Sirup Nanas 1" },
+      { id: 1, src: "/images/sirup_nanas_madu_28_11zon.webp", alt: "Sirup Nanas 1" },
     ],
     colors: [
       { id: "yellow", name: "Bright Yellow", hex: "#FFEE58" },
@@ -186,9 +186,9 @@ export const products = [
     sku: "NANAS-SUP-006",
     weight: "60 Kapsul",
     origin: "Jakarta, Indonesia",
-    image: "/images/product-6.webp",
+    image: "/images/ekstrak_enzim_bromelain.webp",
     images: [
-      { id: 1, src: "/images/product-6-1.webp", alt: "Suplemen Bromelain 1" },
+      { id: 1, src: "/images/ekstrak_enzim_bromealin_27_11zon.webp", alt: "Suplemen Bromelain 1" },
     ],
     colors: [
       { id: "white", name: "Capsule Putih", hex: "#F5F5F5" },
@@ -220,9 +220,9 @@ export const products = [
     sku: "NANAS-CHP-007",
     weight: "100g",
     origin: "Subang, Indonesia",
-    image: "/images/product-7.webp",
+    image: "/images/keripik_nanas_madu_renyah.webp",
     images: [
-      { id: 1, src: "/images/product-7-1.webp", alt: "Keripik Nanas 1" },
+      { id: 1, src: "/images/kripik_nanas_madu_26_11zon.webp", alt: "Keripik Nanas 1" },
     ],
     colors: [
       { id: "gold", name: "Crispy Gold", hex: "#FFCA28" },
@@ -254,9 +254,9 @@ export const products = [
     sku: "NANAS-SPK-008",
     weight: "330ml",
     origin: "Bali, Indonesia",
-    image: "/images/product-8.webp",
+    image: "/images/nanas_madu_sparkling_water.webp",
     images: [
-      { id: 1, src: "/images/product-8-1.webp", alt: "Sparkling Nanas 1" },
+      { id: 1, src: "/images/nanas_madu_sparkling_water_25_11zon.webp", alt: "Sparkling Nanas 1" },
     ],
     colors: [
       { id: "clear", name: "Clear Gold", hex: "#FFF59D" },
@@ -287,9 +287,9 @@ export const products = [
     sku: "NANAS-WHO-009",
     weight: "1.2kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-9.webp",
+    image: "/images/nanas_madu_pemalang_utuh.webp",
     images: [
-      { id: 1, src: "/images/product-9-1.webp", alt: "Nanas Utuh" },
+      { id: 1, src: "/images/nanas_madu_utuh_24_11zon.webp", alt: "Nanas Utuh" },
     ],
     colors: [
       { id: "fresh", name: "Segar Utuh", hex: "#4CAF50" },
@@ -321,9 +321,9 @@ export const products = [
     sku: "NANAS-JUI-010",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-10.webp",
+    image: "/images/jus_nanas_madu_dan_jahe.webp",
     images: [
-      { id: 1, src: "/images/product-10-1.webp", alt: "Jus Nanas Jahe" },
+      { id: 1, src: "/images/Jus_Nanas_Mint_Detoks_2_11zon.webp", alt: "Jus Nanas Jahe" },
     ],
     colors: [
       { id: "ginger", name: "Ginger Yellow", hex: "#FFF176" },
@@ -354,9 +354,9 @@ export const products = [
     sku: "NANAS-PAN-011",
     weight: "180g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-11.webp",
+    image: "/images/sambal_nanas_madu_pedas.webp",
     images: [
-      { id: 1, src: "/images/product-11-1.webp", alt: "Sambal Nanas" },
+      { id: 1, src: "/images/sambal_nanas_madu_pedas_20_11zon.webp", alt: "Sambal Nanas" },
     ],
     colors: [
       { id: "spicy", name: "Merah Merona", hex: "#E53935" },
@@ -387,9 +387,9 @@ export const products = [
     sku: "NANAS-HAM-012",
     weight: "3.5kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-12.webp",
+    image: "/images/hampers_honea_royal_golden.webp",
     images: [
-      { id: 1, src: "/images/product-12-1.webp", alt: "Hampers Premium" },
+      { id: 1, src: "/images/hampers_royal_garden_19_11zon.webp", alt: "Hampers Premium" },
     ],
     colors: [
       { id: "royal", name: "Gold Exclusive", hex: "#D4AF37" },
@@ -420,9 +420,9 @@ export const products = [
     sku: "NANAS-SNK-013",
     weight: "250g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-13.webp",
+    image: "/images/dodol_nanas_madu_pemalang.webp",
     images: [
-      { id: 1, src: "/images/product-13-1.webp", alt: "Dodol Nanas" },
+      { id: 1, src: "/images/dodol_nanas_madu_18_11zon.webp", alt: "Dodol Nanas" },
     ],
     colors: [
       { id: "brown", name: "Coklat Legit", hex: "#795548" },
@@ -453,9 +453,9 @@ export const products = [
     sku: "NANAS-FRZ-014",
     weight: "500g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-14.webp",
+    image: "/images/nanas_madu_kupas_frozen.webp",
     images: [
-      { id: 1, src: "/images/product-14-1.webp", alt: "Nanas Frozen" },
+      { id: 1, src: "/images/nanas_madu_kupas_frozen_17_11zon.webp", alt: "Nanas Frozen" },
     ],
     colors: [
       { id: "frozen", name: "Ice Gold", hex: "#E0F7FA" },
@@ -486,9 +486,9 @@ export const products = [
     sku: "NANAS-JUI-015",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-15.webp",
+    image: "/images/jus_nanas_madu_dan_aloe_vera.webp",
     images: [
-      { id: 1, src: "/images/product-15-1.webp", alt: "Jus Aloe Vera" },
+      { id: 1, src: "/images/jus_nanas_madu_aloevera_16_11zon.webp", alt: "Jus Aloe Vera" },
     ],
     colors: [
       { id: "aloe", name: "Aloe Green-Yellow", hex: "#C5E1A5" },
@@ -519,9 +519,9 @@ export const products = [
     sku: "NANAS-SUP-016",
     weight: "350ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/Cuka Nanas Madu Murni.png",
+    image: "/images/cuka_nanas_madu_murni.webp",
     images: [
-      { id: 1, src: "/images/Cuka Nanas Madu Murni.png", alt: "Cuka Nanas Madu Murni" },
+      { id: 1, src: "/images/cuka_nanas_madu_murni_15_11zon.webp", alt: "Cuka Nanas Madu Murni" },
     ],
     colors: [
       { id: "vinegar", name: "Acid Amber", hex: "#FFE082" },
@@ -552,9 +552,9 @@ export const products = [
     sku: "NANAS-CHP-017",
     weight: "100g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-17.webp",
+    image: "/images/keripik_kaca_nanas_pedas.webp",
     images: [
-      { id: 1, src: "/images/product-17-1.webp", alt: "Keripik Kaca Nanas" },
+      { id: 1, src: "/images/keripik_kaca_nanas_pedas_14_11zon.webp", alt: "Keripik Kaca Nanas" },
     ],
     colors: [
       { id: "redglass", name: "Glass Red", hex: "#EF5350" },
@@ -585,9 +585,9 @@ export const products = [
     sku: "NANAS-HAM-018",
     weight: "2kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-18.webp",
+    image: "/images/hampers_oleh-oleh_pemalang.webp",
     images: [
-      { id: 1, src: "/images/product-18-1.webp", alt: "Hampers Oleh Oleh" },
+      { id: 1, src: "/images/hampers_oleh_oleh_pemalang_13_11zon.webp", alt: "Hampers Oleh Oleh" },
     ],
     colors: [
       { id: "local", name: "Kardus Craft Tradisional", hex: "#8D6E63" },
@@ -616,9 +616,9 @@ export const products = [
     sku: "NANAS-PAN-019",
     weight: "150g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-19.webp",
+    image: "/images/nanas_madu_bubuk_organik.webp",
     images: [
-      { id: 1, src: "/images/product-19-1.webp", alt: "Nanas Bubuk" },
+      { id: 1, src: "/images/nanas_madu_bubuk_organik_12_11zon.webp", alt: "Nanas Bubuk" },
     ],
     colors: [
       { id: "powder", name: "Yellow Powder", hex: "#FFF9C4" },
@@ -649,9 +649,9 @@ export const products = [
     sku: "NANAS-SUP-020",
     weight: "20 Kantung",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-20.webp",
+    image: "/images/teh_herbal_kulit_nanas.webp",
     images: [
-      { id: 1, src: "/images/product-20-1.webp", alt: "Teh Herbal" },
+      { id: 1, src: "/images/teh_herbal_kulit_nanas_11_11zon.webp", alt: "Teh Herbal" },
     ],
     colors: [
       { id: "tea", name: "Teh Gold", hex: "#FFE082" },
@@ -681,9 +681,9 @@ export const products = [
     sku: "NANAS-JUI-021",
     weight: "350ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-21.webp",
+    image: "/images/smoothie_nanas_dan_mangga.webp",
     images: [
-      { id: 1, src: "/images/product-21-1.webp", alt: "Smoothie Nanas" },
+      { id: 1, src: "/images/smoothie_nanas_8_11zon.webp", alt: "Smoothie Nanas" },
     ],
     colors: [
       { id: "mango", name: "Mango Gold", hex: "#FFA726" },
@@ -714,9 +714,9 @@ export const products = [
     sku: "NANAS-SNK-022",
     weight: "400g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-22.webp",
+    image: "/images/asinan_nanas_madu_tropis.webp",
     images: [
-      { id: 1, src: "/images/product-22-1.webp", alt: "Asinan Nanas" },
+      { id: 1, src: "/images/asinan_nanas_madu_10_11zon.webp", alt: "Asinan Nanas" },
     ],
     colors: [
       { id: "spicysweety", name: "Kuah Cabai Merah", hex: "#EF5350" },
@@ -746,9 +746,9 @@ export const products = [
     sku: "NANAS-PAN-023",
     weight: "250g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-23.webp",
+    image: "/images/saus_bbq_nanas_madu.webp",
     images: [
-      { id: 1, src: "/images/product-23-1.webp", alt: "Saus BBQ" },
+      { id: 1, src: "/images/saos_bbq_nanas_madu_9_11zon.webp", alt: "Saus BBQ" },
     ],
     colors: [
       { id: "bbq", name: "Dark Ruby BBQ", hex: "#5D4037" },
@@ -778,9 +778,9 @@ export const products = [
     sku: "NANAS-WHO-024",
     weight: "3.2kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-24.webp",
+    image: "/images/paket_hemat_nanas_3_pcs.webp",
     images: [
-      { id: 1, src: "/images/product-24-1.webp", alt: "Paket Hemat" },
+      { id: 1, src: "/images/paket_hemat_nanas_3pcs_7_11zon.webp", alt: "Paket Hemat" },
     ],
     colors: [
       { id: "hemat", name: "3 Pcs Segar", hex: "#81C784" },
@@ -810,9 +810,9 @@ export const products = [
     sku: "NANAS-SUP-025",
     weight: "50 Kapsul",
     origin: "Jakarta, Indonesia",
-    image: "/images/product-25.webp",
+    image: "/images/kapsul_vitamin_c_nanas.webp",
     images: [
-      { id: 1, src: "/images/product-25-1.webp", alt: "Kapsul Vitamin C" },
+      { id: 1, src: "/images/VITC_nanas_6_11zon.webp", alt: "Vitamin C Nanas" },
     ],
     colors: [
       { id: "vitc", name: "Kapsul Orange-Kuning", hex: "#FFB74D" },
@@ -842,9 +842,9 @@ export const products = [
     sku: "NANAS-HAM-026",
     weight: "1.2kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-26.webp",
+    image: "/images/hampers_honea_mini_gift.webp",
     images: [
-      { id: 1, src: "/images/product-26-1.webp", alt: "Hampers Mini" },
+      { id: 1, src: "/images/hampers_mini_5_11zon.webp", alt: "Hampers Mini" },
     ],
     colors: [
       { id: "minigift", name: "Craft Mini Box", hex: "#A1887F" },
@@ -873,9 +873,9 @@ export const products = [
     sku: "NANAS-SNK-027",
     weight: "200g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-27.webp",
+    image: "/images/puding_jelly_nanas_madu.webp",
     images: [
-      { id: 1, src: "/images/product-27-1.webp", alt: "Puding Jelly Nanas" },
+      { id: 1, src: "/images/puding_jelly_4_11zon.webp", alt: "Puding Jelly Nanas" },
     ],
     colors: [
       { id: "jelly", name: "Jelly Yellow Gold", hex: "#FFF59D" },
@@ -906,9 +906,9 @@ export const products = [
     sku: "NANAS-FRT-028",
     weight: "500g",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-28.webp",
+    image: "/images/nanas_madu_kupas_spiral.webp",
     images: [
-      { id: 1, src: "/images/product-28-1.webp", alt: "Nanas Spiral" },
+      { id: 1, src: "/images/nanas_madu_kupas_spiral_3_11zon.webp", alt: "Nanas Spiral" },
     ],
     colors: [
       { id: "spiral", name: "Spiral Cut Gold", hex: "#FFE082" },
@@ -938,9 +938,9 @@ export const products = [
     sku: "NANAS-JUI-029",
     weight: "250ml",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-29.webp",
+    image: "/images/jus_nanas_mint_detoks.webp",
     images: [
-      { id: 1, src: "/images/product-29-1.webp", alt: "Jus Nanas Mint" },
+      { id: 1, src: "/images/Jus_Nanas_Mint_Detoks_2_11zon.webp", alt: "Jus Mint" },
     ],
     colors: [
       { id: "minty", name: "Minty Yellow Green", hex: "#D4E157" },
@@ -971,9 +971,9 @@ export const products = [
     sku: "NANAS-IND-030",
     weight: "2.5kg",
     origin: "Pemalang, Indonesia",
-    image: "/images/product-30.webp",
+    image: "/images/konsentrat_nanas_madu.webp",
     images: [
-      { id: 1, src: "/images/product-30-1.webp", alt: "Konsentrat Nanas" },
+      { id: 1, src: "/images/konsentrat_nanas_madu_1_11zon.webp", alt: "Konsentrat Nanas" },
     ],
     colors: [
       { id: "concentrate", name: "Deep Gold Concentrate", hex: "#F57C00" },
