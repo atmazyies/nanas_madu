@@ -6,7 +6,7 @@ let content = fs.readFileSync(productsFile, 'utf8');
 
 const imageMap = {
   "Sari Nanas Madu Premium": "jus_nanas_madu_22_11zon.jpg",
-  "Nanas Madu Potong Segar": "bcf78ebe-2490-4562-9b58-b947a71d0606_21_11zon.jpg",
+  "Nanas Madu Potong Segar": "nanas_potong_11zon.jpg",
   "Selai Nanas Madu Organik": "placeholder.webp",
   "Manisan Nanas Madu Kering": "placeholder.webp",
   "Sirup Nanas Madu Asli": "sirup_nanas_madu_28_11zon.jpg",

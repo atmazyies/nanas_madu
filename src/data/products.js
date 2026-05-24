@@ -48,9 +48,9 @@ export const products = [
     sku: "NANAS-FRT-002",
     weight: "400g",
     origin: "Pemalang, Indonesia",
-    image: "/images/nanas_madu_potong_segar.webp",
+    image: "/images/nanas_potong_11zon.jpg",
     images: [
-      { id: 1, src: "/images/bcf78ebe-2490-4562-9b58-b947a71d0606_21_11zon.webp", alt: "Nanas Potong 1" },
+      { id: 1, src: "/images/nanas_potong_11zon.jpg", alt: "Nanas Potong 1" },
       { id: 2, src: "/images/product-2-2.webp", alt: "Nanas Utuh" },
     ],
     colors: [
