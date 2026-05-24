@@ -10,7 +10,7 @@ export default function TestimonialsSection() {
   const displayedItems = showAll ? testimonials.items : testimonials.items.slice(0, 3);
 
   return (
-    <section id="testimonials" className="py-20 sm:py-28 bg-gradient-to-b from-white to-surface overflow-hidden">
+    <section id="testimonials" className="pt-20 pb-10 sm:pt-28 sm:pb-12 bg-gradient-to-b from-white to-surface overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title={testimonials.title}

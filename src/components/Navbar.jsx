@@ -7,9 +7,12 @@ import {
   HiMenu,
   HiX,
   HiChevronDown,
+  HiMoon,
+  HiSun,
 } from "react-icons/hi";
 import { navLinks } from "../data/navigation";
 import { usePrototype } from "../context/PrototypeContext";
+import { useTheme } from "../context/ThemeContext";
 import logoImg from "../assets/logo nanas madu.png";
 
 const iconBtn =
@@ -95,6 +98,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
   const { openPanel, cartCount, wishlist, filterByCategory, clearCategoryFilter } = usePrototype();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   const tickerTexts = [
@@ -136,7 +140,7 @@ export default function Navbar() {
       }`}
     >
       {/* Top Discount Ticker */}
-      <div className="gradient-brand text-white text-xs sm:text-sm font-semibold py-1.5 overflow-hidden relative flex justify-center items-center h-8 shadow-sm">
+      <div className="force-light gradient-brand text-white text-xs sm:text-sm font-semibold py-1.5 overflow-hidden relative flex justify-center items-center h-8 shadow-sm">
         <AnimatePresence mode="wait">
           <motion.div
             key={tickerIndex}
@@ -226,6 +230,14 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+          <button
+            type="button"
+            className={`${iconBtn}`}
+            aria-label="Toggle Dark Mode"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <HiSun className="h-5 w-5" /> : <HiMoon className="h-5 w-5" />}
+          </button>
           <button
             type="button"
             className={`${iconBtn} hidden sm:flex`}

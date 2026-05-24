@@ -49,7 +49,7 @@ export default function TopProductsSection({ limit, showSearch = !limit }) {
     });
 
   return (
-    <section id="shop" className="bg-brand-soft/30 py-16 sm:py-20 lg:py-24" aria-labelledby="products-heading">
+    <section id="shop" className="bg-brand-soft/30 py-10 sm:py-12 lg:py-16" aria-labelledby="products-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

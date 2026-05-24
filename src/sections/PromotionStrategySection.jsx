@@ -4,7 +4,7 @@ import petaniImage from "../assets/petani_sunset.png";
 
 export default function PromotionStrategySection() {
   return (
-    <section className="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 py-20 sm:py-28 overflow-hidden">
+    <section className="force-light relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950 py-20 sm:py-28 overflow-hidden">
       {/* Premium background decorative shapes */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -25,7 +25,7 @@ export default function PromotionStrategySection() {
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight mb-6">
               Dari Tangan Petani Terbaik, <br className="hidden sm:block" />
-              <span className="text-gradient-gold">Hadir untuk Anda</span>
+              <span className="text-amber-400">Hadir untuk Anda</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-emerald-100/80 mb-8">
               Setiap buah Honea adalah wujud keringat, dedikasi mendalam, dan senyuman tulus para petani lokal Pemalang. Kami membangun rantai pasok beretika yang secara langsung meningkatkan kesejahteraan petani binaan, melestarikan ekosistem tanah Gunung Slamet, sekaligus menjamin kualitas nanas madu termanis dan tersegar sampai di meja makan Anda.

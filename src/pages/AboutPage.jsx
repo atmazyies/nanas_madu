@@ -66,46 +66,31 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Sejarah & Cakupan */}
-        <section className="bg-white py-20 sm:py-28 relative overflow-hidden">
-          {/* Decorative shapes */}
-          <div className="absolute inset-0 pointer-events-none opacity-40">
-            <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-soft/30 blur-3xl" />
-            <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-golden-light/20 blur-3xl" />
-          </div>
-
-          <div className="mx-auto max-w-5xl px-6 lg:px-8 relative z-10">
+        <section className="border-y border-brand-soft/60 py-12 sm:py-16 relative overflow-hidden bg-brand-soft/20">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-left">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-brand-dark px-8 py-16 text-center shadow-2xl sm:px-16"
             >
-              {/* Outer light glow */}
-              <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-golden-light/20 blur-2xl" />
-              <div className="absolute -left-16 -bottom-16 w-48 h-48 rounded-full bg-white/10 blur-2xl" />
-
-              <div className="mx-auto max-w-2xl relative z-10">
-                <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-golden-light mb-6 border border-white/10 shadow-sm">
-                  Warisan Agrikultur Pemalang
-                </span>
-                <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl leading-tight">
-                  Telusuri Keunikan & Sejarah <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-golden-light to-amber-200">
-                    Nanas Madu Pemalang
-                  </span>
-                </h2>
-                <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-brand-pale">
-                  Ketahui bagaimana riwayat budidaya tradisional dan kondisi tanah vulkanik kaki Gunung Slamet melahirkan rasa manis legit legendaris yang istimewa.
-                </p>
-                <div className="mt-10 flex justify-center">
-                  <Link
-                    to="/sejarah-nanas"
-                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-golden-light to-golden px-8 py-4 text-base font-bold text-brand-dark shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:from-amber-300 hover:to-amber-500"
-                  >
-                    Pelajari Sejarah Nanas Madu
-                  </Link>
-                </div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand border border-brand/20 bg-brand/5 mb-6">
+                Warisan Agrikultur Pemalang
+              </span>
+              <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl leading-tight">
+                Telusuri Keunikan & Sejarah <br />
+                Nanas Madu Pemalang
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600">
+                Ketahui bagaimana riwayat budidaya tradisional dan kondisi tanah vulkanik kaki Gunung Slamet melahirkan rasa manis legit legendaris yang istimewa.
+              </p>
+              <div className="mt-8 flex justify-start">
+                <Link
+                  to="/sejarah-nanas"
+                  className="inline-flex items-center justify-center border-2 border-brand text-brand px-8 py-4 text-base font-bold transition-all hover:bg-brand hover:text-white"
+                >
+                  Pelajari Sejarah Nanas Madu
+                </Link>
               </div>
             </motion.div>
           </div>

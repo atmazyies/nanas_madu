@@ -14,7 +14,7 @@ export default function HotCategoriesSection() {
   }, []);
 
   return (
-    <section id="categories" className="py-16 sm:py-20 lg:py-24">
+    <section id="categories" className="pt-16 pb-4 sm:pt-20 sm:pb-6 lg:pt-24 lg:pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

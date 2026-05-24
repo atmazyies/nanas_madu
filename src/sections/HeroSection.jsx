@@ -98,7 +98,7 @@ export default function HeroSection() {
     <motion.section
       id="home"
       style={{ background }}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-40 pb-20"
+      className="force-light relative flex min-h-screen items-center justify-center overflow-hidden pt-40 pb-20"
     >
       {/* Decorative premium elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

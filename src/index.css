@@ -2,11 +2,11 @@
 
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --color-brand: #059669;
-  --color-brand-light: #34d399;
+  --color-brand: #2b8a5e;
+  --color-brand-light: #4ea87d;
   --color-brand-pale: #d1fae5;
   --color-brand-soft: #f0fdf4;
-  --color-brand-dark: #064e3b;
+  --color-brand-dark: #1a5e3d;
   --color-golden: #d97706;
   --color-golden-light: #fbbf24;
   --color-golden-pale: #fef3c7;
@@ -14,10 +14,68 @@
   --color-cta-hover: #064e3b;
   --color-text: #1f2937;
   --color-text-muted: #6b7280;
-  --color-surface: #f8fafc;
+  --color-surface: #FAF3E0;
   --shadow-soft: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
   --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 20px 48px -12px rgba(5, 150, 105, 0.18);
+}
+
+@layer base {
+  .dark {
+    --color-white: #111827;
+    --color-black: #ffffff;
+    --color-gray-50: #1f2937;
+    --color-gray-100: #374151;
+    --color-gray-200: #4b5563;
+    --color-gray-300: #6b7280;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #d1d5db;
+    --color-gray-600: #e5e7eb;
+    --color-gray-700: #f3f4f6;
+    --color-gray-800: #f9fafb;
+    --color-gray-900: #ffffff;
+    
+    --color-surface: #0f172a;
+    --color-text: #f9fafb;
+    --color-text-muted: #d1d5db;
+    
+    --color-brand-soft: #064e3b;
+    --color-brand-pale: #065f46;
+  }
+
+  /* Force light text on dark mode backgrounds for specific text classes */
+  .dark .text-white, .dark .hover\:text-white:hover, .dark .group:hover .group-hover\:text-white { color: #ffffff !important; }
+  .dark .text-gray-50, .dark .hover\:text-gray-50:hover { color: #f9fafb !important; }
+  .dark .text-gray-100, .dark .hover\:text-gray-100:hover { color: #f3f4f6 !important; }
+  .dark .text-gray-200, .dark .hover\:text-gray-200:hover { color: #e5e7eb !important; }
+  .dark .text-gray-300, .dark .hover\:text-gray-300:hover { color: #d1d5db !important; }
+  .dark .text-gray-400, .dark .hover\:text-gray-400:hover { color: #9ca3af !important; }
+  .dark .text-brand-pale, .dark .hover\:text-brand-pale:hover, .dark .group:hover .group-hover\:text-brand-pale { color: #d1fae5 !important; }
+  .dark .text-brand-soft, .dark .hover\:text-brand-soft:hover { color: #f0fdf4 !important; }
+  .dark .text-brand-dark, .dark .hover\:text-brand-dark:hover { color: #d1fae5 !important; }
+  .dark .text-brand, .dark .hover\:text-brand:hover, .dark .group:hover .group-hover\:text-brand { color: #4ea87d !important; }
+
+  .force-light {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    --color-surface: #FAF3E0;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
+    
+    --color-brand-soft: #f0fdf4;
+    --color-brand-pale: #d1fae5;
+  }
 }
 
 .gradient-brand {
@@ -33,16 +91,12 @@
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand) 60%, var(--color-golden) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-text);
   display: inline-block;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, var(--color-golden-light) 0%, var(--color-golden) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-text);
   display: inline-block;
 }
 
@@ -60,7 +114,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
 }
 

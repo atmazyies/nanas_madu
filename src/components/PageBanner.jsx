@@ -4,7 +4,7 @@ import { HiChevronRight } from "react-icons/hi";
 
 export default function PageBanner({ title, subtitle, breadcrumbs = [] }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-dark pt-32 pb-20 sm:pt-36 sm:pb-24">
+    <section className="force-light relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-dark pt-32 pb-20 sm:pt-36 sm:pb-24">
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-golden-light/10 blur-3xl" />

@@ -19,7 +19,7 @@ const socialIconMap = {
 
 export default function ContactSection() {
   return (
-    <section id="contact-info" className="border-t border-gray-100 bg-brand-soft/20 py-20">
+    <section id="contact-info" className="border-t border-gray-100 bg-brand-soft/20 py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <SectionHeading
           title="Ikuti Media Sosial Kami"

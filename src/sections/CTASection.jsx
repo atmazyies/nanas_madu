@@ -22,7 +22,7 @@ export default function CTASection() {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2rem] gradient-luxury px-8 py-14 text-center text-white shadow-2xl sm:px-16 border border-white/10"
+          className="force-light relative overflow-hidden rounded-[2rem] gradient-luxury px-8 py-14 text-center text-white shadow-2xl sm:px-16 border border-white/10"
         >
           <div
             className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/10 blur-2xl"

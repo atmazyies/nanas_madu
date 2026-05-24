@@ -21,7 +21,7 @@ export default function ProdukPage() {
 
       <main className="bg-surface">
         {/* Category Overview */}
-        <section className="py-12 sm:py-16 bg-white border-b border-gray-100">
+        <section className="pt-12 pb-4 sm:pt-16 sm:pb-6 bg-white border-b border-gray-100">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -178,108 +178,84 @@ export default function KemitraanPage() {
             })}
           </div>
 
-          {/* B2B Partnership Box (Match Screenshot perfectly) */}
+          {/* B2B Partnership Section (Redesigned to be organic) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-[2.5rem] bg-white border border-gray-100 p-8 sm:p-12 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden"
+            className="mt-24 pt-16 border-t border-brand-soft/50 grid items-center gap-10 lg:grid-cols-12"
           >
-            <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-brand-soft/20 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-golden-pale/25 blur-3xl pointer-events-none" />
-
-            <div className="grid items-center gap-10 lg:grid-cols-12 relative z-10">
-              {/* Left Content (8 cols) */}
-              <div className="lg:col-span-8 text-left">
-                <div className="flex items-center gap-2 mb-4">
-                  <HiOutlineSparkles className="w-5 h-5 text-[#00966B]" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#00966B]">Kerjasama Bisnis</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-3">
-                  Mau Kerjasama B2B & Kemitraan?
-                </h3>
-                <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-                  Bergabunglah dengan jaringan mitra Honea dan kembangkan bisnis Anda bersama produk premium kami.
-                </p>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {partnershipBenefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-                      <HiOutlineCheckCircle className="w-5 h-5 text-[#00966B] shrink-0" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+            {/* Left Content (8 cols) */}
+            <div className="lg:col-span-8 text-left">
+              <div className="flex items-center gap-2 mb-4">
+                <HiOutlineSparkles className="w-5 h-5 text-brand" />
+                <span className="text-xs font-bold uppercase tracking-widest text-brand">Kerjasama Bisnis</span>
               </div>
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+                Punya Kebutuhan Skala Besar?
+              </h3>
+              <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+                Bergabunglah dengan jaringan mitra Honea. Kami siap mensuplai kebutuhan Nanas Madu premium untuk operasional bisnis HORECA maupun ritel Anda.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-4">
+                {partnershipBenefits.map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-gray-700 font-medium">
+                    <HiOutlineCheckCircle className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* Right Stacked Buttons (4 cols) */}
-              <div className="lg:col-span-4 flex flex-col gap-4 w-full">
-                <a
-                  href={`mailto:${contact.email}?subject=Inquiry Kerjasama B2B & Kemitraan Honea`}
-                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-8 py-4 text-sm font-extrabold text-white transition-all duration-300 hover:brightness-110 shadow-md hover:shadow-lg active:scale-[0.98] text-center"
-                >
-                  Hubungi Tim Kemitraan
-                </a>
-                <a
-                  href={contact.social.find((s) => s.id === "whatsapp")?.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[#00966B] px-8 py-4 text-sm font-extrabold text-[#00966B] bg-white transition-all duration-300 hover:bg-[#00966B]/5 active:scale-[0.98] text-center"
-                >
-                  Chat via WhatsApp
-                </a>
-              </div>
+            {/* Right Stacked Buttons (4 cols) */}
+            <div className="lg:col-span-4 flex flex-col gap-4 w-full">
+              <a
+                href={`mailto:${contact.email}?subject=Inquiry Kerjasama B2B & Kemitraan Honea`}
+                className="inline-flex items-center justify-center bg-brand text-white px-8 py-4 text-sm font-bold transition-all duration-300 hover:bg-brand-dark hover:-translate-y-1"
+              >
+                Hubungi Tim Kemitraan
+              </a>
+              <a
+                href={contact.social.find((s) => s.id === "whatsapp")?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border-2 border-brand text-brand bg-transparent px-8 py-4 text-sm font-bold transition-all duration-300 hover:bg-brand-soft"
+              >
+                Chat via WhatsApp
+              </a>
             </div>
           </motion.div>
 
-          {/* Sponsorship Box */}
+          {/* Sponsorship Box (Redesigned) */}
           <motion.div
             id="sponsorship"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-[2.5rem] bg-gradient-to-br from-brand-dark via-brand to-brand-dark border border-brand-light/20 p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(5,150,105,0.4)] relative overflow-hidden mt-8"
+            className="mt-16 p-8 sm:p-12 bg-brand-soft/40 border border-brand-soft/80 flex flex-col lg:flex-row items-center justify-between gap-8"
           >
-            <div className="absolute top-0 right-0 h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
-            <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-golden-light/20 blur-3xl pointer-events-none" />
-
-            <div className="grid items-center gap-10 lg:grid-cols-12 relative z-10">
-              {/* Left Content (8 cols) */}
-              <div className="lg:col-span-8 text-left">
-                <div className="flex items-center gap-2 mb-4">
-                  <HiOutlineSparkles className="w-5 h-5 text-golden" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-golden">Program Dukungan Acara</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-                  Pengajuan Sponsorship Honea
-                </h3>
-                <p className="text-sm sm:text-base text-brand-pale leading-relaxed mb-6">
-                  Punya acara kampus, festival, atau kompetisi olahraga? Honea siap mendukung kesuksesan event Anda melalui program sponsorship berupa produk segar sehat maupun dukungan pendanaan!
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
-                    Acara Kampus
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
-                    Kompetisi Olahraga
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white border border-white/20">
-                    Festival Komunitas
-                  </span>
-                </div>
+            <div className="text-left max-w-2xl">
+              <div className="flex items-center gap-2 mb-3">
+                <HiOutlineSparkles className="w-5 h-5 text-golden" />
+                <span className="text-xs font-bold uppercase tracking-widest text-golden-dark">Program Acara</span>
               </div>
-
-              {/* Right Button (4 cols) */}
-              <div className="lg:col-span-4 flex flex-col items-center sm:items-end justify-center w-full">
-                <a
-                  href={`mailto:${contact.email}?subject=Proposal Sponsorship Acara`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-extrabold text-brand-dark transition-transform hover:scale-105 shadow-xl text-center"
-                >
-                  Kirim Proposal Acara
-                </a>
-                <p className="text-xs text-brand-pale mt-4 text-center sm:text-right max-w-xs">
-                  *Tim kami akan meninjau proposal Anda dalam waktu 2-3 hari kerja.
-                </p>
-              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4">
+                Pengajuan Sponsorship Honea
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                Punya acara kampus, festival, atau kompetisi olahraga? Honea siap mendukung kesuksesan event Anda melalui program sponsorship produk segar sehat!
+              </p>
+            </div>
+            <div className="shrink-0 w-full lg:w-auto flex flex-col items-center lg:items-end">
+              <a
+                href={`mailto:${contact.email}?subject=Proposal Sponsorship Acara`}
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 text-sm font-bold transition-all hover:bg-slate-800"
+              >
+                Kirim Proposal
+              </a>
+              <p className="text-xs text-gray-500 mt-3 text-center sm:text-right">
+                *Proses review 2-3 hari kerja.
+              </p>
             </div>
           </motion.div>
 

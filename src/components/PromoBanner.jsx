@@ -50,7 +50,7 @@ export default function PromoBanner({ banner }) {
           className={`mt-5 inline-flex w-fit items-center rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-colors ${
             isGreen
               ? "bg-brand hover:bg-green-600"
-              : "bg-gray-800 hover:bg-gray-900"
+              : "bg-slate-800 hover:bg-slate-900"
           }`}
         >
           {banner.cta}
