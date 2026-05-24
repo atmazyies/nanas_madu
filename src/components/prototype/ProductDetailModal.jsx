@@ -25,11 +25,9 @@ export default function ProductDetailModal() {
   const isOpen = activePanel === "product" && selectedProduct;
   const wishlisted = selectedProduct ? isWishlisted(selectedProduct.id) : false;
 
-  const images = selectedProduct?.images?.length
-    ? selectedProduct.images
-    : selectedProduct
-      ? [{ id: 1, src: selectedProduct.image, alt: selectedProduct.title }]
-      : [];
+  const images = selectedProduct
+    ? [{ id: 1, src: selectedProduct.image, alt: selectedProduct.title }]
+    : [];
 
   useEffect(() => {
     if (selectedProduct) {

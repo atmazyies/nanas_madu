@@ -67,7 +67,7 @@ Vitamin C dari Nanas Madu melindungi Anda dengan cara merangsang produksi sel da
     author: "Tim Riset Honea",
     date: "15 April 2026",
     readTime: "4 Menit",
-    coverImage: "https://images.unsplash.com/photo-1601002360527-df2a16c3cb7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80",
     scientificSource: {
       journal: "Nutrients Journal",
       title: "Vitamin C and Immune Function",
@@ -182,7 +182,7 @@ Lendir (mukus) yang sehat akan bertindak sebagai saringan debu dan alergen yang 
     author: "Tim Ahli Gizi Honea",
     date: "10 Maret 2026",
     readTime: "3 Menit",
-    coverImage: "https://images.unsplash.com/photo-1516029792015-8c77ecbd0e31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
     scientificSource: {
       journal: "Allergy, Asthma & Clinical Immunology",
       title: "Diet and Asthma: Looking Back and Moving Forward",
@@ -205,7 +205,7 @@ Terutama bagi wanita pasca-menopause yang rentan terkena osteoporosis, konsumsi 
     author: "Tim Riset Honea",
     date: "05 Maret 2026",
     readTime: "4 Menit",
-    coverImage: "https://images.unsplash.com/photo-1512685934524-7b70505ab3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
     scientificSource: {
       journal: "The Journal of Nutrition",
       title: "Manganese Action in Bone Formation",
@@ -228,7 +228,7 @@ Mereka yang mengonsumsi tiga atau lebih porsi buah tinggi antioksidan setiap har
     author: "Tim Ahli Gizi Honea",
     date: "28 Februari 2026",
     readTime: "3 Menit",
-    coverImage: "https://images.unsplash.com/photo-1516029792015-8c77ecbd0e31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    coverImage: "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=600&q=80",
     scientificSource: {
       journal: "Archives of Ophthalmology",
       title: "Prospective Study of Intake of Fruits and Age-Related Macular Degeneration",
