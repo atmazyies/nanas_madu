@@ -21,40 +21,6 @@
 }
 
 @layer base {
-  .dark {
-    --color-white: #111827;
-    --color-black: #ffffff;
-    --color-gray-50: #1f2937;
-    --color-gray-100: #374151;
-    --color-gray-200: #4b5563;
-    --color-gray-300: #6b7280;
-    --color-gray-400: #9ca3af;
-    --color-gray-500: #d1d5db;
-    --color-gray-600: #e5e7eb;
-    --color-gray-700: #f3f4f6;
-    --color-gray-800: #f9fafb;
-    --color-gray-900: #ffffff;
-    
-    --color-surface: #0f172a;
-    --color-text: #f9fafb;
-    --color-text-muted: #d1d5db;
-    
-    --color-brand-soft: #064e3b;
-    --color-brand-pale: #065f46;
-  }
-
-  /* Force light text on dark mode backgrounds for specific text classes */
-  .dark .text-white, .dark .hover\:text-white:hover, .dark .group:hover .group-hover\:text-white { color: #ffffff !important; }
-  .dark .text-gray-50, .dark .hover\:text-gray-50:hover { color: #f9fafb !important; }
-  .dark .text-gray-100, .dark .hover\:text-gray-100:hover { color: #f3f4f6 !important; }
-  .dark .text-gray-200, .dark .hover\:text-gray-200:hover { color: #e5e7eb !important; }
-  .dark .text-gray-300, .dark .hover\:text-gray-300:hover { color: #d1d5db !important; }
-  .dark .text-gray-400, .dark .hover\:text-gray-400:hover { color: #9ca3af !important; }
-  .dark .text-brand-pale, .dark .hover\:text-brand-pale:hover, .dark .group:hover .group-hover\:text-brand-pale { color: #d1fae5 !important; }
-  .dark .text-brand-soft, .dark .hover\:text-brand-soft:hover { color: #f0fdf4 !important; }
-  .dark .text-brand-dark, .dark .hover\:text-brand-dark:hover { color: #d1fae5 !important; }
-  .dark .text-brand, .dark .hover\:text-brand:hover, .dark .group:hover .group-hover\:text-brand { color: #4ea87d !important; }
-
   .force-light {
     --color-white: #ffffff;
     --color-black: #000000;
@@ -191,36 +157,7 @@ body {
   }
 }
 
-.glass-dark {
-  background: linear-gradient(
-    135deg,
-    rgba(6, 78, 59, 0.7) 0%,
-    rgba(6, 78, 59, 0.45) 50%,
-    rgba(6, 78, 59, 0.3) 100%
-  );
-  backdrop-filter: blur(32px) saturate(180%) contrast(95%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%) contrast(95%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.12);
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
 
-.glass-dark:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(6, 78, 59, 0.8) 0%,
-    rgba(6, 78, 59, 0.55) 50%,
-    rgba(6, 78, 59, 0.4) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 
-    0 35px 60px -15px rgba(0, 0, 0, 0.35),
-    inset 0 2px 2px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -2px 3px 0 rgba(255, 255, 255, 0.2);
-}
 
 .gradient-soft {
   background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f9fafb 100%);
