@@ -56,6 +56,7 @@ export const navLinks = [
     href: "/faq",
     subLinks: [
       { label: "Tanya Jawab / FAQ", href: "/faq" },
+      { label: "Chat Penjual (Bot)", href: "/faq?chat=true" },
       { label: "Hubungi Kami", href: "/kontak" },
     ],
   },
@@ -83,6 +84,7 @@ export const footerLinks = {
   ],
   layanan: [
     { label: "Tanya Jawab / FAQ", href: "/faq" },
+    { label: "Chat Penjual (Bot)", href: "/faq?chat=true" },
     { label: "Hubungi Kami", href: "/kontak" },
     { label: "Kerjasama & Franchise", href: "/kemitraan" },
     { label: "Program Affiliator / Kreator", href: "/kemitraan#affiliator" },

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import PageBanner from "../components/PageBanner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { faqData } from "../data/faq";
+import SellerChatBot from "../components/SellerChatBot";
 
 function AccordionItem({ item, isOpen, toggle }) {
   return (
@@ -48,28 +49,63 @@ function AccordionItem({ item, isOpen, toggle }) {
 
 export default function FAQPage() {
   const [openId, setOpenId] = useState(1);
+  const [searchParams] = useSearchParams();
+  const chatParam = searchParams.get("chat") === "true";
+  const [highlightChat, setHighlightChat] = useState(false);
+  const chatSectionRef = useRef(null);
+
+  useEffect(() => {
+    if (chatParam) {
+      const scrollTimer = setTimeout(() => {
+        chatSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        setHighlightChat(true);
+        const highlightTimer = setTimeout(() => setHighlightChat(false), 3000);
+        return () => clearTimeout(highlightTimer);
+      }, 600);
+      return () => clearTimeout(scrollTimer);
+    }
+  }, [chatParam]);
 
   return (
     <>
       <Navbar />
       <PageBanner
-        title="FAQ"
+        title="Bantuan & FAQ"
         subtitle={faqData.subtitle}
-        breadcrumbs={[{ label: "FAQ" }]}
+        breadcrumbs={[{ label: "Bantuan & FAQ" }]}
       />
 
       <main className="bg-surface">
         <section className="py-20 sm:py-28">
-          <div className="mx-auto max-w-3xl px-6 lg:px-8">
-            <div className="space-y-4">
-              {faqData.items.map((item) => (
-                <AccordionItem
-                  key={item.id}
-                  item={item}
-                  isOpen={openId === item.id}
-                  toggle={() => setOpenId(openId === item.id ? null : item.id)}
-                />
-              ))}
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              
+              {/* Left Column: FAQ Accordion */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="mb-6">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">Tanya Jawab (FAQ)</h2>
+                  <p className="mt-2 text-sm text-gray-500">Temukan jawaban cepat untuk pertanyaan umum tentang layanan dan produk Honea.</p>
+                </div>
+                <div className="space-y-4">
+                  {faqData.items.map((item) => (
+                    <AccordionItem
+                      key={item.id}
+                      item={item}
+                      isOpen={openId === item.id}
+                      toggle={() => setOpenId(openId === item.id ? null : item.id)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column: Chat Seller Bot */}
+              <div ref={chatSectionRef} className="lg:col-span-5 space-y-6 scroll-mt-28">
+                <div className="mb-6">
+                  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">Chat Penjual</h2>
+                  <p className="mt-2 text-sm text-gray-500">Punya pertanyaan khusus? Hubungi asisten virtual kami yang membalas instan secara live!</p>
+                </div>
+                <SellerChatBot highlight={highlightChat} />
+              </div>
             </div>
 
             {/* CTA to Kontak */}
@@ -77,9 +113,9 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-16 text-center"
+              className="mt-20 text-center"
             >
-              <div className="glass rounded-3xl p-10 shadow-[var(--shadow-card)]">
+              <div className="glass rounded-3xl p-10 shadow-[var(--shadow-card)] max-w-4xl mx-auto">
                 <h3 className="text-xl font-bold text-gray-900">Masih punya pertanyaan?</h3>
                 <p className="mt-3 text-gray-600">
                   Tim Customer Service kami di Semarang siap membantu Anda
