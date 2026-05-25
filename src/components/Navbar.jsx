@@ -7,10 +7,13 @@ import {
   HiMenu,
   HiX,
   HiChevronDown,
+  HiMoon,
+  HiSun,
   HiOutlineBell,
 } from "react-icons/hi";
 import { navLinks } from "../data/navigation";
 import { usePrototype } from "../context/PrototypeContext";
+import { useTheme } from "../context/ThemeContext";
 import logoImg from "../assets/logo nanas madu.png";
 
 const iconBtn =
@@ -106,6 +109,7 @@ export default function Navbar() {
     user,
     logout
   } = usePrototype();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   const tickerTexts = [
@@ -245,6 +249,14 @@ export default function Navbar() {
             <HiOutlineBell className="h-5 w-5" />
             <Badge count={unreadNotificationsCount} />
           </Link>
+          <button
+            type="button"
+            className={iconBtn}
+            aria-label="Toggle Dark Mode"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <HiSun className="h-5 w-5" /> : <HiMoon className="h-5 w-5" />}
+          </button>
           <button
             type="button"
             className={`${iconBtn} hidden sm:flex`}

@@ -1,20 +1,93 @@
 @import "tailwindcss";
 
+:root {
+  --brand: #2b8a5e;
+  --brand-light: #4ea87d;
+  --brand-pale: #d1fae5;
+  --brand-soft: #f0fdf4;
+  --brand-dark: #1a5e3d;
+  --golden: #d97706;
+  --golden-light: #fbbf24;
+  --golden-pale: #fef3c7;
+  --cta: #059669;
+  --cta-hover: #064e3b;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --surface: #FAF3E0;
+  --white: #ffffff;
+  --black: #000000;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.25) 100%);
+  --glass-hover-border: rgba(255, 255, 255, 0.85);
+}
+
+html.dark {
+  --brand: #4ea87d;
+  --brand-light: #6ee7b7;
+  --brand-pale: #064e3b;
+  --brand-soft: #14241d;
+  --brand-dark: #10b981;
+  --golden: #fbbf24;
+  --golden-light: #fcd34d;
+  --golden-pale: #451a03;
+  --cta: #10b981;
+  --cta-hover: #34d399;
+  --text: #f3f4f6;
+  --text-muted: #9ca3af;
+  --surface: #0a1410;
+  --white: #14241d;
+  --black: #ffffff;
+
+  --color-white: #14241d;
+  --color-black: #ffffff;
+  --color-gray-50: #162820;
+  --color-gray-100: #1b3227;
+  --color-gray-200: #254436;
+  --color-gray-300: #305846;
+  --color-gray-400: #719b85;
+  --color-gray-500: #9ca3af;
+  --color-gray-600: #cbd5e1;
+  --color-gray-700: #e2e8f0;
+  --color-gray-800: #f1f5f9;
+  --color-gray-900: #f8fafc;
+
+  --glass-bg: linear-gradient(135deg, rgba(20, 36, 29, 0.6) 0%, rgba(20, 36, 29, 0.4) 50%, rgba(20, 36, 29, 0.3) 100%);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover-bg: linear-gradient(135deg, rgba(20, 36, 29, 0.7) 0%, rgba(20, 36, 29, 0.5) 50%, rgba(20, 36, 29, 0.4) 100%);
+  --glass-hover-border: rgba(255, 255, 255, 0.15);
+}
+
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --color-brand: #2b8a5e;
-  --color-brand-light: #4ea87d;
-  --color-brand-pale: #d1fae5;
-  --color-brand-soft: #f0fdf4;
-  --color-brand-dark: #1a5e3d;
-  --color-golden: #d97706;
-  --color-golden-light: #fbbf24;
-  --color-golden-pale: #fef3c7;
-  --color-cta: #059669;
-  --color-cta-hover: #064e3b;
-  --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-  --color-surface: #FAF3E0;
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-brand-pale: var(--brand-pale);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-dark: var(--brand-dark);
+  --color-golden: var(--golden);
+  --color-golden-light: var(--golden-light);
+  --color-golden-pale: var(--golden-pale);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-surface: var(--surface);
+  
   --shadow-soft: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
   --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 20px 48px -12px rgba(5, 150, 105, 0.18);
@@ -82,6 +155,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -90,15 +164,10 @@ body {
 }
 
 .glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
+  background: var(--glass-bg);
   backdrop-filter: blur(32px) saturate(210%) contrast(95%);
   -webkit-backdrop-filter: blur(32px) saturate(210%) contrast(95%);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-border);
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.08),
     0 12px 32px -8px rgba(5, 150, 105, 0.06),
@@ -108,13 +177,8 @@ body {
 }
 
 .glass:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.25) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: var(--glass-hover-bg);
+  border: 1px solid var(--glass-hover-border);
   box-shadow: 
     0 35px 60px -15px rgba(5, 150, 105, 0.12),
     0 20px 40px -10px rgba(0, 0, 0, 0.06),
@@ -124,15 +188,10 @@ body {
 
 @media (min-width: 640px) {
   .sm-glass {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 0.15) 100%
-    );
+    background: var(--glass-bg);
     backdrop-filter: blur(32px) saturate(210%) contrast(95%);
     -webkit-backdrop-filter: blur(32px) saturate(210%) contrast(95%);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--glass-border);
     box-shadow: 
       0 25px 50px -12px rgba(0, 0, 0, 0.08),
       0 12px 32px -8px rgba(5, 150, 105, 0.06),
@@ -142,13 +201,8 @@ body {
   }
   
   .sm-glass:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.35) 50%,
-      rgba(255, 255, 255, 0.25) 100%
-    );
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: var(--glass-hover-bg);
+    border: 1px solid var(--glass-hover-border);
     box-shadow: 
       0 35px 60px -15px rgba(5, 150, 105, 0.12),
       0 20px 40px -10px rgba(0, 0, 0, 0.06),
