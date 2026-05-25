@@ -10,23 +10,15 @@ export const navLinks = [
     href: "/about",
     subLinks: [
       { label: "Kisah Honea", href: "/about#story" },
+      { label: "Keunggulan Kami", href: "/uvp" },
       { label: "Sejarah Nanas Madu", href: "/sejarah-nanas" },
+      { label: "Sertifikasi & Kualitas", href: "/uvp#sertifikasi" },
       { label: "Tim Kami", href: "/about#team" },
     ],
   },
   {
-    id: "uvp",
-    label: "Keunggulan",
-    href: "/uvp",
-    subLinks: [
-      { label: "Kenapa Honea?", href: "/uvp" },
-      { label: "Manfaat Kesehatan", href: "/uvp#manfaat-kesehatan" },
-      { label: "Sertifikasi & Kualitas", href: "/uvp#sertifikasi" },
-    ],
-  },
-  {
     id: "shop",
-    label: "Katalog Produk",
+    label: "Katalog",
     href: "/shop",
     subLinks: [
       { label: "Semua Produk", href: "/shop" },
@@ -51,7 +43,7 @@ export const navLinks = [
   },
   {
     id: "blog",
-    label: "Artikel & Edukasi",
+    label: "Artikel",
     href: "/blog",
     subLinks: [
       { label: "Jurnal Kesehatan", href: "/blog" },
