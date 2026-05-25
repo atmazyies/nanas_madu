@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { HiX, HiStar, HiOutlineHeart, HiMinus, HiPlus, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { HiX, HiStar, HiOutlineHeart, HiMinus, HiPlus, HiChevronLeft, HiChevronRight, HiOutlineChatAlt2 } from "react-icons/hi";
 import { IoBagAdd } from "react-icons/io5";
 import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
@@ -15,6 +15,8 @@ export default function ProductDetailModal() {
     toggleWishlist,
     isWishlisted,
     startCheckout,
+    openChatWithProductTemplate,
+    startBuyNow,
   } = usePrototype();
 
   const [activeImage, setActiveImage] = useState(0);
@@ -55,9 +57,13 @@ export default function ProductDetailModal() {
   };
 
   const handleBuyNow = () => {
-    handleAddToCart();
+    if (!selectedProduct) return;
     closePanel();
-    startCheckout();
+    startBuyNow(selectedProduct, {
+      qty: quantity,
+      color: selectedColor,
+      size: selectedSize,
+    });
   };
 
   const nextImage = () => setActiveImage((i) => (i + 1) % images.length);
@@ -422,13 +428,25 @@ export default function ProductDetailModal() {
                   </button>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={handleBuyNow}
-                  className="mt-3 w-full rounded-full border-2 border-brand py-3 text-sm font-semibold text-brand hover:bg-brand-soft"
-                >
-                  Beli Sekarang
-                </button>
+                <div className="mt-3.5 grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      openChatWithProductTemplate(selectedProduct, selectedColor, selectedSize, quantity);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-blue-500 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition-all duration-300"
+                  >
+                    <HiOutlineChatAlt2 className="h-5 w-5" />
+                    Chat Penjual
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleBuyNow}
+                    className="rounded-full bg-brand py-3 text-sm font-semibold text-white hover:bg-brand-dark transition-all duration-300 shadow-md shadow-brand/10 animate-pulse"
+                  >
+                    Beli Sekarang
+                  </button>
+                </div>
               </motion.div>
             </div>
           </motion.div>

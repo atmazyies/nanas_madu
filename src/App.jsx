@@ -21,6 +21,7 @@ const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage"));
+const NotificationsPage = lazy(() => import("./pages/NotificationsPage"));
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/notifications" element={<NotificationsPage />} />
           </Routes>
         </Suspense>
         <FloatingWhatsApp />

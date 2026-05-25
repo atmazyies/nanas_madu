@@ -9,6 +9,7 @@ import {
   HiChevronDown,
   HiMoon,
   HiSun,
+  HiOutlineBell,
 } from "react-icons/hi";
 import { navLinks } from "../data/navigation";
 import { usePrototype } from "../context/PrototypeContext";
@@ -97,7 +98,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const { openPanel, cartCount, wishlist, filterByCategory, clearCategoryFilter } = usePrototype();
+  const { openPanel, cartCount, wishlist, filterByCategory, clearCategoryFilter, unreadNotificationsCount } = usePrototype();
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
@@ -230,6 +231,14 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+          <Link
+            to="/notifications"
+            className={iconBtn}
+            aria-label="Notifikasi"
+          >
+            <HiOutlineBell className="h-5 w-5" />
+            <Badge count={unreadNotificationsCount} />
+          </Link>
           <button
             type="button"
             className={`${iconBtn}`}
@@ -302,6 +311,13 @@ export default function Navbar() {
                 >
                   Wishlist ({wishlist.length})
                 </button>
+                <Link
+                  to="/notifications"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center rounded-xl bg-brand-soft py-2.5 text-sm font-medium text-brand outline-none focus:outline-none flex justify-center items-center gap-1.5"
+                >
+                  Notifikasi ({unreadNotificationsCount})
+                </Link>
               </li>
             </ul>
           </motion.div>

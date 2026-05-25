@@ -7,6 +7,7 @@ import RegisterPage from "./RegisterPage";
 import ForgotPasswordPage from "./ForgotPasswordPage";
 import CheckoutModal from "./CheckoutModal";
 import ProductDetailModal from "./ProductDetailModal";
+import ChatDrawer from "./ChatDrawer";
 
 export default function PrototypeUI() {
   return (
@@ -20,6 +21,7 @@ export default function PrototypeUI() {
       <ForgotPasswordPage />
       <CheckoutModal />
       <ProductDetailModal />
+      <ChatDrawer />
     </>
   );
 }
