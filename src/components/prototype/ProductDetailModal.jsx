@@ -6,6 +6,110 @@ import { usePrototype } from "../../context/PrototypeContext";
 import Overlay from "./Overlay";
 import { formatRupiah } from "../../utils/format";
 
+const generateReviewsForProduct = (product) => {
+  const id = product.id;
+  const title = product.title;
+  const category = product.category;
+
+  const dates = [
+    "2 hari yang lalu",
+    "4 hari yang lalu",
+    "1 minggu yang lalu",
+    "2 minggu yang lalu",
+    "1 bulan yang lalu"
+  ];
+
+  const ratings = [5, 5, 4, 5, 4];
+
+  const names = [
+    ["Rian Pratama", "Siti Aminah", "Budi Cahyono", "Dewi Sartika", "Hendra Setiawan"],
+    ["Eko Susanto", "Putri Lestari", "Agus Wijaya", "Sri Wahyuni", "Fajar Nugroho"],
+    ["Andi Saputra", "Rina Amelia", "Dedi Kusuma", "Lia Rahmawati", "Yanto Subagyo"],
+    ["Joko Sitorus", "Mega Handayani", "Susi Susanti", "Bambang Pamungkas", "Gisella Anastasia"],
+    ["Taufik Hidayat", "Liliyana Natsir", "Alan Budikusuma", "Jonatan Christie", "Kevin Sanjaya"],
+    ["Raffi Ahmad", "Nagita Slavina", "Deddy Corbuzier", "Atta Halilintar", "Baim Wong"],
+    ["Reza Rahadian", "Chelsea Islan", "Pevita Pearce", "Dian Sastro", "Nicholas Saputra"],
+    ["Gibran Rakabuming", "Kaesang Pangarep", "Bobby Nasution", "Selvi Ananda", "Kahiyang Ayu"],
+    ["Anies Baswedan", "Ganjar Pranowo", "Prabowo Subianto", "Muhaimin Iskandar", "Mahfud MD"],
+    ["Sandiaga Uno", "Erick Thohir", "Basuki Hadimuljono", "Retno Marsudi", "Sri Mulyani"],
+    ["Ridwan Kamil", "Khofifah Indar", "Tri Rismaharini", "Emil Dardak", "Atalia Praratya"],
+    ["Najwa Shihab", "Andy F. Noya", "Karni Ilyas", "Rosianna Silalahi", "Merry Riana"],
+    ["Iqbaal Ramadhan", "Angga Yunanda", "Adhisty Zara", "Vanesha Prescilla", "Jefri Nichol"],
+    ["Isyana Sarasvati", "Raisa Andriana", "Tulus", "Afgan Syahreza", "Yura Yunita"],
+    ["Ariel Noah", "Once Mekel", "Ari Lasso", "Kaka Slank", "Duta Sheila"],
+    ["Gading Marten", "Gisella Anastasia", "Gempi Nora", "Roy Marten", "Roy Suryo"],
+    ["Sule Prikitiw", "Andre Taulany", "Nunung Srimulat", "Parto Patrio", "Azis Gagap"],
+    ["Denny Cagur", "Wendy Cagur", "Ruben Onsu", "Ivan Gunawan", "Raffi Ahmad"],
+    ["Paula Verhoeven", "Kiano Tiger", "Kenzo Eldrago", "Chelzea Verhoeven", "Nail Fadhly"],
+    ["Ria Ricis", "Teuku Ryan", "Oki Setiana", "Shindy Putri", "Moana Cantik"],
+    ["Tasya Farasya", "Tasyi Athasyia", "Rachel Vennya", "Awkarin", "Anya Geraldine"],
+    ["Boy William", "Daniel Mananta", "Roby Purba", "Indra Herlambang", "Arie Untung"],
+    ["Cinta Laura", "Agnez Mo", "Anggun C. Sasmi", "Rich Brian", "Niki Zefanya"],
+    ["Raditya Dika", "Ernest Prakasa", "Pandji Pragi", "Bintang Emon", "Arie Kriting"]
+  ];
+
+  const productNames = names[(id - 1) % names.length];
+
+  let templates = [];
+  if (category === "Juice") {
+    templates = [
+      `Jus ${title} nya segar sekali, rasa nanas madunya kerasa banget dan manisnya alami tanpa serak di tenggorokan. Sangat direkomendasikan untuk diminum dingin!`,
+      `Pengiriman cepat dan jus ${title} sampai dalam kondisi masih dingin berkat kemasan yang rapi. Tanpa gula tapi sudah manis alami, mantap sekali!`,
+      `Anak-anak saya suka sekali dengan ${title} ini. Rasanya segar, asam manis pas, dan praktis tidak perlu kupas nanas lagi. Repeat order pasti.`,
+      `Kualitas premium sesuai deskripsi. Dingin-dingin minum ${title} ini langsung bikin mata melek dan tubuh segar kembali. Top markotop!`,
+      `Sangat puas dengan ${title} ini. Terasa sekali kalau ini perasan murni 100% buah nanas madu asli Pemalang tanpa campuran air.`
+    ];
+  } else if (category === "Fresh Fruit") {
+    templates = [
+      `${title} nya sangat manis, juicy, dan tidak gatal di lidah sama sekali. Benar-benar nanas madu kualitas pilihan terbaik dari Pemalang.`,
+      `Kondisi ${title} sampai dengan aman, buahnya segar, wangi madunya langsung tercium begitu kemasan dibuka. Potongannya juga rapi dan bersih.`,
+      `Sangat praktis beli ${title} di sini. Tidak perlu repot mengupas, tinggal makan. Manis madunya legit sekali, cocok untuk hidangan pencuci mulut.`,
+      `Rasa manis nanas madu ${title} ini juara banget! Jauh lebih enak dari nanas biasa. Pengiriman cepat dan dikemas sangat higienis.`,
+      `Nanasnya segar sekali, matang sempurna dengan warna kuning madu yang merata. Sangat direkomendasikan bagi pecinta nanas sejati!`
+    ];
+  } else if (category === "Pantry") {
+    templates = [
+      `Gila, ${title} ini wangi dan rasanya legit banget. Tekstur serat nanas madunya masih sangat terasa, manisnya pas tidak bikin enek.`,
+      `Saya pakai ${title} ini untuk isian nastar dan rasanya jadi premium sekali! Konsistensinya pas, tidak terlalu basah dan gampang dibulatkan.`,
+      `Kemasan jar kacanya rapi dan aman dengan bubble wrap tebal. ${title} rasa manis asamnya seimbang, sangat enak dioles ke roti tawar pagi hari.`,
+      `Kualitas bahan organiknya terasa sekali di ${title} ini. Tanpa bahan pengawet kimia jadi rasanya sangat alami dan menyehatkan.`,
+      `Baru pertama kali coba ${title} dan langsung jatuh cinta. Nanas madu aslinya berasa banget, beda jauh dengan merk pabrikan biasa.`
+    ];
+  } else if (category === "Snacks") {
+    templates = [
+      `${title} ini renyah banget dan rasa manis-asam nanas madunya tetap awet. Camilan sehat yang wajib disetok di rumah!`,
+      `Keripik ${title} nya kering sempurna, tidak berminyak sama sekali, dan renyahnya tahan lama. Sangat nagih untuk teman nonton film.`,
+      `Pengemasan aman dengan kardus tebal sehingga ${title} tidak hancur di jalan. Rasa manis alami nanas madunya juara sekali.`,
+      `Camilan nanas kering ${title} terfavorit! Tanpa pemanis buatan sehingga aman dikonsumsi anak-anak. Potongannya pas dan bersih.`,
+      `Dodol/keripik ${title} nya legit dan gurih mantap. Teksturnya pas di lidah, rasa manis nanas Pemalangnya khas sekali.`
+    ];
+  } else if (category === "Supplements") {
+    templates = [
+      `Luar biasa khasiat ${title} ini. Setelah rutin konsumsi, nyeri sendi saya berkurang drastis dan pencernaan jadi sangat lancar.`,
+      `Produk ekstrak ${title} berkualitas tinggi. Sangat membantu meredakan perut kembung dan begah sehabis makan protein tinggi.`,
+      `Sangat direkomendasikan! Kapsul ${title} herbalnya gampang ditelan dan khasiat nanas madu Pemalangnya benar-benar terasa nyata.`,
+      `Kondisi botol segel rapat dan aman. Suplemen ${title} ini sangat bagus untuk imunitas tubuh dan melancarkan saluran pencernaan.`,
+      `Cuka/enzim ${title} nya asli difermentasi alami, terasa dari aromanya yang khas. Sangat bagus untuk detoks tubuh harian.`
+    ];
+  } else {
+    templates = [
+      `Produk ${title} ini sangat luar biasa! Kualitas premium, rasa nanas madunya khas Pemalang sekali, dan pengiriman super cepat.`,
+      `Sangat puas belanja ${title} di sini. Seller sangat ramah, kemasan higienis dan aman, rasa produknya manis segar juara.`,
+      `Rekomendasi terbaik untuk produk olahan nanas madu. ${title} ini memiliki cita rasa kelas atas, manisnya alami dan sehat.`,
+      `Barang sampai dengan selamat tanpa cacat. Kualitas ${title} sangat oke, cocok untuk oleh-oleh maupun dinikmati sendiri bersama keluarga.`,
+      `Tidak pernah kecewa beli ${title} di Honea. Rasanya konsisten enak, berkhasiat tinggi bagi tubuh, dan harga sangat sebanding.`
+    ];
+  }
+
+  return productNames.map((name, index) => ({
+    id: `rev-${id}-${index}`,
+    name,
+    rating: ratings[index],
+    date: dates[index],
+    text: templates[index]
+  }));
+};
+
 export default function ProductDetailModal() {
   const {
     activePanel,
@@ -446,6 +550,98 @@ export default function ProductDetailModal() {
                   >
                     Beli Sekarang
                   </button>
+                </div>
+
+                {/* Ulasan Pelanggan Section */}
+                <div className="mt-8 border-t border-gray-150 pt-6">
+                  <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    Ulasan Pelanggan <span className="text-xs font-normal text-gray-500">(5 ulasan)</span>
+                  </h3>
+                  
+                  {/* Rating Overview */}
+                  <div className="mt-4 flex flex-col sm:flex-row gap-5 rounded-2xl bg-gray-50 p-4 border border-gray-100/50">
+                    <div className="flex flex-col items-center justify-center sm:w-1/3 border-b sm:border-b-0 sm:border-r border-gray-200/60 pb-3 sm:pb-0 sm:pr-5">
+                      <span className="text-4xl font-extrabold text-gray-900">{selectedProduct.rating}</span>
+                      <div className="flex items-center gap-0.5 mt-1.5">
+                        {[...Array(5)].map((_, i) => (
+                          <HiStar 
+                            key={i} 
+                            className={`h-4.5 w-4.5 ${
+                              i < Math.floor(selectedProduct.rating) ? "text-amber-400" : "text-gray-200"
+                            }`} 
+                          />
+                        ))}
+                      </div>
+                      <span className="text-xs text-gray-500 mt-2">Kepuasan 98%</span>
+                    </div>
+                    
+                    {/* Progress Bars */}
+                    <div className="flex-1 flex flex-col justify-center gap-1.5 text-xs text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <span className="w-12 font-medium">5 Bintang</span>
+                        <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
+                          <div className="h-full bg-brand rounded-full" style={{ width: "60%" }}></div>
+                        </div>
+                        <span className="w-4 text-right">3</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-12 font-medium">4 Bintang</span>
+                        <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
+                          <div className="h-full bg-brand rounded-full" style={{ width: "40%" }}></div>
+                        </div>
+                        <span className="w-4 text-right">2</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-12 font-medium">3 Bintang</span>
+                        <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
+                          <div className="h-full bg-brand rounded-full" style={{ width: "0%" }}></div>
+                        </div>
+                        <span className="w-4 text-right">0</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-12 font-medium">2 Bintang</span>
+                        <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
+                          <div className="h-full bg-brand rounded-full" style={{ width: "0%" }}></div>
+                        </div>
+                        <span className="w-4 text-right">0</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Reviews List */}
+                  <div className="mt-5 space-y-4">
+                    {generateReviewsForProduct(selectedProduct).map((rev) => (
+                      <div 
+                        key={rev.id} 
+                        className="rounded-2xl border border-gray-100 p-4 transition-all hover:bg-gray-50/50 hover:shadow-sm"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-3">
+                            <div className="h-9 w-9 rounded-full bg-gradient-to-tr from-brand to-golden flex items-center justify-center text-white text-[11px] font-bold uppercase shadow-sm">
+                              {rev.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-gray-800">{rev.name}</span>
+                              <div className="flex items-center gap-0.5 mt-0.5">
+                                {[...Array(5)].map((_, i) => (
+                                  <HiStar 
+                                    key={i} 
+                                    className={`h-3 w-3 ${
+                                      i < rev.rating ? "text-amber-400" : "text-gray-200"
+                                    }`} 
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <span className="text-[10px] text-gray-400 font-medium">{rev.date}</span>
+                        </div>
+                        <p className="mt-2.5 text-xs text-gray-600 leading-relaxed pl-1">
+                          {rev.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </div>
