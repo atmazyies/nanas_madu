@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoArrowBackOutline, IoShieldCheckmarkOutline, IoHeartOutline, IoSparklesOutline } from "react-icons/io5";
 import logoImg from "../assets/logo nanas madu.png";
 import petaniSunset from "../assets/petani_sunset.png";
+import { usePrototype } from "../context/PrototypeContext";
 
 // Animation Variants for staggered inputs
 const containerVariants = {
@@ -30,6 +31,7 @@ const itemVariants = {
 
 export default function RegisterPage() {
   const navigate = useNavigate();
+  const { register } = usePrototype();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -66,10 +68,10 @@ export default function RegisterPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      showToast("Pendaftaran berhasil! Mengalihkan...", "success");
+      register({ fullName, email, phone: "" });
       setTimeout(() => {
-        navigate("/login");
-      }, 1200);
+        navigate("/");
+      }, 1000);
     }, 1200);
   };
 
@@ -79,10 +81,10 @@ export default function RegisterPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      showToast("Pendaftaran dengan Google berhasil!", "success");
+      register({ fullName: "Google User", email: "google.user@gmail.com", phone: "" });
       setTimeout(() => {
         navigate("/");
-      }, 1200);
+      }, 1000);
     }, 1500);
   };
 

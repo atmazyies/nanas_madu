@@ -98,7 +98,17 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const { openPanel, cartCount, wishlist, filterByCategory, clearCategoryFilter, unreadNotificationsCount } = usePrototype();
+  const {
+    openPanel,
+    cartCount,
+    wishlist,
+    filterByCategory,
+    clearCategoryFilter,
+    unreadNotificationsCount,
+    isLoggedIn,
+    user,
+    logout
+  } = usePrototype();
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
@@ -265,12 +275,45 @@ export default function Navbar() {
             <HiOutlineShoppingCart className="h-5 w-5" />
             <Badge count={cartCount} />
           </button>
-          <Link
-            to="/login"
-            className="hidden sm:inline-flex items-center justify-center rounded-xl bg-brand-soft border border-brand/20 px-4.5 py-2 text-xs font-semibold text-brand transition-all duration-300 hover:bg-brand hover:text-white hover:border-transparent active:scale-95 outline-none focus:outline-none"
-          >
-            Masuk
-          </Link>
+          {isLoggedIn ? (
+            <div className="relative group hidden sm:block">
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-xl bg-brand-soft border border-brand/20 px-3 py-1.5 text-xs font-semibold text-brand transition-all duration-300 hover:bg-brand hover:text-white hover:border-transparent active:scale-95 outline-none focus:outline-none"
+              >
+                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-brand to-golden flex items-center justify-center text-white text-[10px] font-extrabold uppercase shadow-sm">
+                  {user.name ? user.name.slice(0, 2) : "US"}
+                </div>
+                <span className="max-w-[80px] truncate">{user.name || "User"}</span>
+                <HiChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute right-0 top-full opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 pt-2">
+                <div className="w-52 rounded-2xl bg-white p-2 shadow-[0_12px_40px_rgba(0,0,0,0.1)] border border-gray-100/50 outline-none">
+                  <div className="px-3 py-2 border-b border-gray-100/80 mb-1">
+                    <p className="text-xs font-bold text-gray-900 truncate">{user.name || "Pengguna"}</p>
+                    <p className="text-[10px] text-gray-500 truncate mt-0.5">{user.email}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={logout}
+                    className="w-full text-left rounded-xl px-3 py-2.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition-colors outline-none focus:outline-none flex items-center gap-2"
+                  >
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Keluar / Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden sm:inline-flex items-center justify-center rounded-xl bg-brand-soft border border-brand/20 px-4.5 py-2 text-xs font-semibold text-brand transition-all duration-300 hover:bg-brand hover:text-white hover:border-transparent active:scale-95 outline-none focus:outline-none"
+            >
+              Masuk
+            </Link>
+          )}
           <button
             type="button"
             className={`${iconBtn} lg:hidden`}
@@ -297,13 +340,40 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-3 flex flex-col gap-2">
-                <Link
-                  to="/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full text-center rounded-xl bg-brand py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-dark transition-all duration-300 outline-none focus:outline-none"
-                >
-                  Masuk / Daftar
-                </Link>
+                {isLoggedIn ? (
+                  <div className="flex flex-col gap-2 rounded-xl bg-gray-50 p-3 border border-gray-100 mb-1">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-brand to-golden flex items-center justify-center text-white text-xs font-extrabold uppercase shadow-sm">
+                        {user.name ? user.name.slice(0, 2) : "US"}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-gray-900 leading-tight">{user.name || "User"}</span>
+                        <span className="text-xs text-gray-500 truncate max-w-[180px]">{user.email}</span>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        logout();
+                        setMobileOpen(false);
+                      }}
+                      className="w-full mt-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 py-2.5 text-xs font-bold text-rose-600 transition-colors duration-300 outline-none focus:outline-none flex justify-center items-center gap-2"
+                    >
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013 3v1" />
+                      </svg>
+                      Keluar / Logout
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full text-center rounded-xl bg-brand py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-dark transition-all duration-300 outline-none focus:outline-none"
+                  >
+                    Masuk / Daftar
+                  </Link>
+                )}
                 <button
                   type="button"
                   onClick={() => { openPanel("wishlist"); setMobileOpen(false); }}
